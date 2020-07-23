@@ -31,7 +31,7 @@ class Header extends Component {
                         ) : (
                             <>
                                 <li>
-                                    <NavLink to="/login">Logine</NavLink>
+                                    <NavLink to="/login">Login</NavLink>
                                 </li>
                             </>
                         )}
