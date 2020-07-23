@@ -11,7 +11,6 @@ class Header extends Component {
     };
 
     render() {
-        console.log(this.props.user)
         return (
             <header className="header">
                 <div className="logo">
@@ -32,7 +31,7 @@ class Header extends Component {
                         ) : (
                             <>
                                 <li>
-                                    <NavLink to="/login">Login</NavLink>
+                                    <NavLink to="/login">Logine</NavLink>
                                 </li>
                             </>
                         )}
