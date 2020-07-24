@@ -12,7 +12,7 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="header">
+            <header className="head">
                 <div className="logo">
                     <NavLink to="/">Cafe Critic</NavLink>
                 </div>

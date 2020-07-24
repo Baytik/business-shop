@@ -6,7 +6,7 @@ import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from "redux-thunk";
 import {Provider} from "react-redux";
 import {createBrowserHistory} from "history";
-import {connectRouter, routerMiddleware, ConnectedRouter} from "connected-react-router";
+import {ConnectedRouter, connectRouter, routerMiddleware} from "connected-react-router";
 import usersReducer from "./store/reducers/usersReducer";
 
 const saveToLocalStorage = state => {
