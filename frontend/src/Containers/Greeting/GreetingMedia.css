@@ -1,0 +1,300 @@
+@media screen and (max-width: 1125px) {
+    .title_1 {
+        font-size: 17px;
+        margin-left: -40%;
+    }
+    .title_2 {
+        font-size: 17px;
+    }
+    .title_3 {
+        font-size: 17px;
+        margin-left: -40%;
+    }
+    .text-1 , .text-2 , .text-3{
+        width: 120px;
+        height: 120px;
+    }
+    .text-1 p , .text-2 p , .text-3 p{
+        margin-left: 47px;
+        margin-top: 40px;
+        font-size: 40px;
+    }
+    .hr1 {
+        width: 165px;
+        float: left;
+        margin-left: -4%;
+    }
+    .hr2 {
+        width: 166px;
+        margin-top: 76%;
+        margin-left: -26.3%;
+    }
+    .GreetingContainer {
+        height: 1000px;
+    }
+    .about {
+        height: 1000px;
+    }
+    .lets {
+        margin-left: 31%;
+    }
+}
+@media screen and (max-width: 1115px){
+    .hr1 {
+        margin-left: -25%;
+    }
+}
+@media screen and (max-width: 1090px){
+    .title_1 {
+        font-size: 15px;
+        margin-left: -33%;
+        width: 300px;
+    }
+    .title_2 {
+        width: 300px;
+        font-size: 15px;
+    }
+    .title_3 {
+        width: 300px;
+        font-size: 15px;
+        margin-left: -33%;
+    }
+    .hr1 {
+        margin-left: -3%;
+        margin-top: 31%;
+        width: 155px;
+    }
+    .hr2 {
+        margin-left: -26%;
+        width: 162px;
+        margin-top: 76.3%;
+    }
+    .title {
+        padding-top: 15%;
+    }
+    .lets {
+        margin-left: 28%;
+    }
+}
+@media screen and (max-width: 855px){
+    .title_1 {
+        font-size: 14px;
+        margin-left: -40%;
+        margin-top: 3%;
+    }
+    .title_2 {
+        font-size: 14px;
+        margin-left: 17%;
+    }
+    .title_3 {
+        font-size: 14px;
+        margin-left: -41%;
+    }
+    .hr1 {
+        margin-left: 2%;
+        margin-top: 34%;
+        width: 100px;
+    }
+    .hr2 {
+        margin-left: -21.5%;
+        margin-top: 79%;
+        width: 100px;
+    }
+    .GreetingContainer {
+        height: 800px;
+    }
+    .about {
+        height: 800px;
+    }
+}
+@media screen and (max-width: 740px){
+    .title {
+        padding-top: 15%;
+    }
+    .name img {
+        width: 240px;
+        height: 200px;
+    }
+    .title_1 {
+        width: 230px;
+        margin-left: -34%;
+        margin-top: 2%;
+        font-size: 13px;
+    }
+    .title_2 {
+        width: 230px;
+        margin-left: 16%;
+        font-size: 13px;
+        margin-top: 28%;
+    }
+    .title_3 {
+        font-size: 13px;
+        width: 230px;
+        margin-left: -34%;
+    }
+    .text-1 , .text-2 , .text-3{
+        width: 100px;
+        height: 100px;
+    }
+    .text-3 {
+        margin-top: 49.7%;
+    }
+    .text-1 p ,.text-2 p , .text-3 p{
+        margin-left: 40px;
+        margin-top: 35px;
+        font-size: 30px;
+    }
+    .hr1 {
+        margin-left: -29%;
+        margin-top: 34%;
+        width: 78px;
+    }
+    .hr2 {
+        width: 78px;
+        margin-left: -29%;
+        margin-top: 77%;
+    }
+    .lets {
+        margin-left: 22%;
+    }
+    .about {
+        height: 700px;
+    }
+    .GreetingContainer {
+        height: 700px;
+    }
+}
+@media screen and (max-width: 550px){
+    .about_us {
+        margin-left: 35%;
+    }
+    .name {
+        position: relative;
+        height: 170px ;
+        margin-left: 18%;
+    }
+    .name img {
+        width: 300px;
+        height: 250px;
+    }
+    .textAbout{
+        margin-left: 8%;
+        font-size: 30px;
+    }
+    .title {
+        padding-top: 25%;
+    }
+    .title_1 , .title_3{
+        font-size: 10px;
+        margin-left: -39%;
+        width: 160px;
+    }
+    .title_2 {
+        font-size: 10px;
+        width: 160px;
+        margin-left: 18%;
+        margin-top: 26%;
+    }
+    .text-1 , .text-2 , .text-3{
+        width: 70px;
+        height: 70px;
+    }
+    .text-1 p , .text-2 p , .text-3 p{
+        margin-left: 26px;
+        margin-top: 20px;
+    }
+    .btn {
+        width: 220px;
+    }
+    .btn > span {
+        font-size: 16px;
+    }
+    .effect04::before {
+        font-size: 15px;
+    }
+    .lets {
+        margin-top: 72%;
+        margin-left: 26%;
+    }
+    .hr1 {
+        margin-left: 3.5%;
+        margin-top: 34%;
+        width: 50px;
+    }
+    .hr2 {
+        margin-left: -20%;
+        width: 50px;
+        margin-top: 79%;
+    }
+    .GreetingContainer {
+        height: 695px;
+    }
+    .about {
+        height: 695px;
+    }
+}
+@media screen and (max-width: 320px){
+    .name {
+        margin-left: 17%;
+        height: 140px;
+    }
+    .textAbout {
+        margin-left:1%;
+        margin-top: 10px;
+    }
+    .name img {
+        width: 200px;
+        height: 180px;
+    }
+    .block {
+        height: 50px;
+    }
+    .text-1 , .text-2 , .text-3 {
+        width: 50px;
+        height: 50px;
+    }
+    .text-1 p , .text-2 p , .text-3 p {
+        font-size: 20px;
+        margin-left:20px;
+        margin-top: 15px;
+    }
+    .title_1 , .title_3{
+        font-size: 6px;
+        width: 100px;
+        margin-top: 3%;
+        margin-left: -35%;
+    }
+    .title_2 {
+        font-size: 6px;
+        width: 100px;
+
+    }
+    .title_3 {
+        margin-top: 55%;
+    }
+    .hr1 {
+        margin-left: -8%;
+        margin-top: 22%;
+        width: 80px;
+    }
+    .hr2 {
+        margin-left: -9%;
+        width: 80px;
+        margin-top: 66%;
+    }
+    .btn {
+        width: 180px;
+    }
+    .effect04::before {
+        font-size: 13px;
+    }
+    .lets {
+        margin-left: 22%;
+    }
+    .about {
+        height: 695px;
+    }
+    .GreetingContainer {
+        height: 695px;
+    }
+}

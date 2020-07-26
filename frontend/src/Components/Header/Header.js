@@ -11,6 +11,7 @@ class Header extends Component {
     };
 
     render() {
+
         return (
             <header className="head">
                 <div className="logo">
