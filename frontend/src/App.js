@@ -8,7 +8,7 @@ import Login from "./Containers/Login/Login";
 class App extends Component {
   render() {
     return (
-        <div classNa me="App">
+        <div className="App">
             <Header/>
             <Switch>
                 <Route path="/" exact component={Greeting}/>
