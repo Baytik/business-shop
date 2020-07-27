@@ -11,11 +11,10 @@ class Header extends Component {
     };
 
     render() {
-
         return (
             <header className="head">
                 <div className="logo">
-                    <NavLink to="/">Cafe Critic</NavLink>
+                    <NavLink to="/">Hagaps</NavLink>
                 </div>
                 <nav className="main-nav">
                     <ul>
@@ -23,7 +22,7 @@ class Header extends Component {
                             <>
                                 <span>Hello, {this.props.user.username}!</span>
                                 <li>
-                                    <NavLink to="/new_place">Add new place</NavLink>
+                                    <NavLink to="/new_place">Something</NavLink>
                                 </li>
                                 <li>
                                     <button onClick={() => this.logoOutUserHandler()}>Logout</button>

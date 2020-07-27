@@ -1,5 +1,6 @@
 .GreetingContainer {
-    background: url("../../Components/Images/kompiuter_kulery_podsvetka_146318_3840x2400.jpg") no-repeat;
+    background-image: url("../../Components/Images/kompiuter_kulery_podsvetka_146318_3840x2400.jpg");
+    background-repeat: no-repeat;
     background-size:  cover;
     background-attachment: fixed;
     height: 1200px;
