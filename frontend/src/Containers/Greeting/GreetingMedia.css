@@ -257,12 +257,6 @@
         width: 60px;
         margin-top: 77%;
     }
-    .GreetingContainer {
-        height: 740px;
-    }
-    .about {
-        height: 740px;
-    }
 }
 @media screen and (max-width: 460px){
     .title_1 , .title_3{
@@ -276,12 +270,6 @@
     .hr2 {
         margin-left: -21%;
         width: 50px;
-    }
-    .GreetingContainer {
-        height: 695px;
-    }
-    .about {
-        height: 695px;
     }
     .lets {
         margin-left: 26%;
@@ -356,7 +344,7 @@
         width: 80px;
     }
     .hr2 {
-        margin-left: -45%;
+        margin-left: -9%;
         width: 80px;
         margin-top: 66%;
     }
@@ -368,11 +356,5 @@
     }
     .lets {
         margin-left: 22%;
-    }
-    .about {
-        height: 695px;
-    }
-    .GreetingContainer {
-        height: 695px;
     }
 }
