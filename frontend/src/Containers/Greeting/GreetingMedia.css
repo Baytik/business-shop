@@ -164,9 +164,40 @@
         height: 700px;
     }
 }
+@media screen and (max-width: 620px){
+    .title_1,.title_3 {
+        margin-left: -41%;
+    }
+    .title_2 {
+        margin-left: 20%;
+    }
+    .block {
+        height: 40px;
+    }
+    .title {
+        padding-top: 25%;
+    }
+    .lets {
+        margin-top: 63%;
+        margin-left: 18%;
+    }
+    .hr1 {
+        margin-left: 1%;
+        margin-top: 31%;
+        width: 90px;
+    }
+    .hr2 {
+        width: 90px;
+        margin-left: -28%;
+        margin-top: 75%;
+    }
+}
 @media screen and (max-width: 550px){
     .about_us {
         margin-left: 35%;
+    }
+    .block {
+        height: 0px;
     }
     .name {
         position: relative;
@@ -186,7 +217,7 @@
     }
     .title_1 , .title_3{
         font-size: 10px;
-        margin-left: -39%;
+        margin-left: -32%;
         width: 160px;
     }
     .title_2 {
@@ -214,23 +245,70 @@
     }
     .lets {
         margin-top: 72%;
-        margin-left: 26%;
+        margin-left: 28%;
     }
     .hr1 {
-        margin-left: 3.5%;
+        margin-left: 1%;
+        margin-top: 33%;
+        width: 65px;
+    }
+    .hr2 {
+        margin-left: -22%;
+        width: 60px;
+        margin-top: 77%;
+    }
+    .GreetingContainer {
+        height: 740px;
+    }
+    .about {
+        height: 740px;
+    }
+}
+@media screen and (max-width: 460px){
+    .title_1 , .title_3{
+        margin-left: -39%;
+    }
+    .hr1 {
+        margin-left: 4%;
         margin-top: 34%;
         width: 50px;
     }
     .hr2 {
-        margin-left: -20%;
+        margin-left: -21%;
         width: 50px;
-        margin-top: 79%;
     }
     .GreetingContainer {
         height: 695px;
     }
     .about {
         height: 695px;
+    }
+    .lets {
+        margin-left: 26%;
+        margin-top: 75%;
+    }
+}
+@media screen and (max-width: 420px) {
+    .title_1 , .title_3 {
+        margin-left: -41%;
+        width: 150px;
+    }
+    .title_2 {
+        margin-left: 20%;
+        width: 140px;
+    }
+    .block {
+        height: 30px;
+    }
+    .hr1 {
+        margin-left: 3%;
+        margin-top: 31%;
+        width: 55px;
+    }
+    .hr2 {
+        margin-left: -26%;
+        width: 55px;
+        margin-top: 74%;
     }
 }
 @media screen and (max-width: 320px){
