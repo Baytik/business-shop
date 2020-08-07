@@ -1,0 +1,70 @@
+.LoginContainer {
+    background: url('../../Components/Images/macbook_appele_klavishi_161213_3840x2400.jpg') no-repeat;
+    background-size: cover;
+    height: 620px;
+    padding-top: 8%;
+}
+.login {
+    width: 380px;
+    margin-left: 6%;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+.text_login {
+    color: white;
+    font-family: 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+form {
+    padding-top: 20px;
+}
+.inputs {
+    display: flex;
+}
+.inputs p {
+    margin-left: 20px;
+    font-family: 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
+    color: white;
+    font-size: 17px;
+    width: 70px;
+}
+.inputs input {
+    width: 230px;
+    height: 20px;
+    margin-top: 15px;
+    background: #ededed;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    outline: none;
+    padding-left: 5px;
+    font-family: 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
+}
+.inputs input:focus {
+    border-bottom: 3px solid black;
+}
+.button button {
+    width: 50%;
+    border-top: 3px solid transparent;
+    background:white;
+    text-align: center;
+    font-family: 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono  ;
+    cursor: pointer;
+    border-bottom: 3px solid #a7a7a7;
+    border-right: 0;
+    border-left: 0;
+    margin-top: 10%;
+    margin-left: 25%;
+    outline: none;
+}
+.button button:hover {
+    transition: all 0.3s;
+    background: #A7A7A7;
+    color: white;
+}
+.button button:focus {
+    background: black;
+    color: white;
+    border-bottom: 3px solid black;
+}

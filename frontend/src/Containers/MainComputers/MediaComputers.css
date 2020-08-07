@@ -1,0 +1,233 @@
+@media screen and (max-width: 1125px){
+    .computer_info {
+        width: 350px;
+    }
+    .cpu img , .ram img , .gpu img , .ssd img , .hdd img , .scale img , .block_category img , .block_price img{
+        width:25px;
+        height: 25px;
+    }
+    .tovar_name {
+        font-size: 12px;
+        width: 125px;
+        margin-left: 10px;
+    }
+    .tovar_info {
+        font-size: 10px;
+        width: 125px;
+    }
+    .info {
+        width: 150px;
+        height: 70px;
+    }
+    .title_category , .title_price {
+        font-size: 12px;
+    }
+    .category , .price {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .computer_block {
+        margin-left: 3%;
+    }
+    .computer_img img {
+        width: 200px;
+    }
+    .computer_img {
+        width: 200px;
+        height: 250px;
+    }
+    .computer_info {
+        height: 250px;
+    }
+    .info {
+        height: 60px;
+    }
+    .cpu , .gpu , .ram , .ssd , .scale , .hdd {
+        margin-top: 5px;
+    }
+    .block_by {
+        width: 150px;
+    }
+    .block_category , .block_price {
+        width: 150px;
+    }
+    .category , .price {
+        font-size: 10px;
+        width: 120px;
+    }
+    .by {
+        width: 120px;
+        margin-top: 30px;
+        text-align: center;
+        margin-left: 10px;
+    }
+    .text_1 , .text_2{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 660px){
+    .computer_block {
+        display: block;
+        margin-left: 2.2%;
+    }
+    .computer_info {
+        height: 470px;
+        width: 200px;
+    }
+    .block_info_1 , .block_info_2 , .block_info_3{
+        display: block;
+    }
+    .cpu{
+        margin-top: 0px;
+        border-bottom: 1px solid white;
+        padding-bottom: 10px;
+        width: 170px;
+    }
+    .gpu , .ram , .ssd , .hdd {
+        border-bottom:1px solid white;
+        width: 170px;
+        padding-bottom: 10px;
+    }
+    .block_by {
+        border-left: 0;
+        border-top: 2px solid white;
+        width: 180px;
+        height: 240px;
+    }
+    .by {
+        margin-left: 20px;
+    }
+    .pc {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 658px) {
+    .computer_block {
+        margin-left: 12%;
+    }
+}
+@media screen and (max-width: 568px) {
+    .computer_block {
+        margin-left: 10%;
+    }
+}
+@media screen and (max-width: 514px) {
+    .computer_block {
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width: 495px) {
+    .computer_block {
+        margin-left: 6%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .computer_block {
+        margin-left: 4%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .computer_block {
+        margin-left: 2%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .computer_block {
+        margin-left: 5px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .computer_block {
+        margin-left: 12%;
+    }
+    .computer_img img {
+        width: 300px;
+    }
+    .computer_img {
+        width: 300px;
+        height: 350px;
+    }
+    .computer_info {
+        width: 300px;
+    }
+    .cpu , .gpu  , .ram  , .ssd  , .hdd  , .scale {
+        width: 230px;
+        height: 90px;
+        margin-top: 0;
+        margin-left: 10px;
+    }
+    .cpu img , .gpu img , .ram img , .ssd img , .hdd img ,.scale img , .block_category img , .block_price img{
+        width: 40px;
+        height: 40px;
+    }
+    .tovar_name {
+        font-size: 16px;
+        width: 200px;
+    }
+    .tovar_info {
+        font-size: 14px;
+        width: 200px;
+    }
+    .computer_info {
+        height: 615px;
+    }
+    .block_by {
+        width: 280px;
+        height: 300px;
+    }
+    .block_category , .block_price {
+        height: 90px;
+    }
+    .title_category , .title_price {
+        font-size: 17px;
+    }
+    .category , .price {
+        font-size: 16px;
+        width: 200px;
+    }
+    .by {
+        width: 200px;
+        margin-left:12%;
+    }
+    .text_1 , .text_2 {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 380px){
+    .computer_block {
+        margin-left: 10%;
+    }
+    footer p {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 340px){
+    .computer_block {
+        margin-left: 3%;
+    }
+}
+@media screen and (max-width: 320px){
+    .computer_block {
+        margin-left: 20px;
+    }
+    .computer_img {
+        width: 280px;
+    }
+    .computer_img img {
+        width: 280px;
+    }
+    .computer_info {
+        width: 280px;
+    }
+    .tovar_info , .tovar_name{
+        width: 180px;
+    }
+    .block_by {
+        width: 260px;
+    }
+    .by {
+        margin-left: 20px;
+    }
+}

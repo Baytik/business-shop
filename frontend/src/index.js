@@ -1,4 +1,4 @@
-                                                                                                                                                        import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,7 +7,9 @@ import thunkMiddleware from "redux-thunk";
 import {Provider} from "react-redux";
 import {createBrowserHistory} from "history";
 import {ConnectedRouter, connectRouter, routerMiddleware} from "connected-react-router";
+import 'react-toastify/dist/ReactToastify.css';
 import usersReducer from "./store/reducers/usersReducer";
+import {pcReducer} from './store/reducers/pcReducer';
 
 const saveToLocalStorage = state => {
     try {
@@ -36,6 +38,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     router: connectRouter(history),
     user: usersReducer,
+    pc: pcReducer,
 });
 
 const middleware = [

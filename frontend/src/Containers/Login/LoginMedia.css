@@ -1,0 +1,50 @@
+@media screen and (max-width: 430px){
+    .login {
+        width: 300px;
+        margin-left: 16%;
+    }
+    .inputs {
+        width: 300px;
+        display: inline-block;
+    }
+    .inputs p {
+        width: 250px;
+        text-align: center;
+    }
+    .inputs input {
+        margin-left: 10%;
+    }
+    .text_login {
+        display: none;
+    }
+}
+@media screen and (max-width: 390px){
+    .LoginContainer {
+        width: 380px;
+    }
+    .login {
+        width: 280px;
+        height: 280px;
+        margin-top: 20%;
+        margin-left: 14%;
+    }
+    .inputs {
+        width: 280px;
+    }
+    .inputs input {
+        margin-left: 7%;
+    }
+    .inputs p {
+        width: 230px;
+    }
+}
+@media screen and (max-width: 360px){
+    .login {
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width: 340px){
+    .login {
+        margin-left: 5%;
+    }
+}

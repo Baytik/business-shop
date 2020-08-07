@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-import './Login.css';
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {loginUser} from "../../store/actions/usersAction";
+import {toast,ToastContainer} from "react-toastify";
+import './Login.css';
+import 'animate.css';
+import './LoginMedia.css';
 
 class Login extends Component {
 
     state = {
         username: '',
         password: '',
+        animate1: true,
     };
 
     changeInputHandler = e => {
@@ -17,36 +21,40 @@ class Login extends Component {
 
     loginUserHandler = async (event) => {
         event.preventDefault();
-        const User = {
-            username: this.state.username,
-            password: this.state.password
-        };
-        await this.props.loginUser(User);
+            const User = {
+                username: this.state.username,
+                password: this.state.password
+            };
+            await this.props.loginUser(User);
+            if(this.props.loginError){
+                this.setState({animate1: false});
+                toast.error(`${this.props.loginError.error}`);
+            }
     };
 
     render() {
         if (this.props.user) return <Redirect to="/"/>;
         return (
-            <div className="login">
-                <p>Login</p>
+            <div className="LoginContainer">
+                <ToastContainer/>
+                <div className={this.state.animate1 === true ? "login animate__animated animate__fadeInDown" : "login animate__animated animate__bounce"}>
+                    <p className="text_login">Вход</p>
                 <form onSubmit={this.loginUserHandler}>
-                    <div>
+                    <div className="inputs">
+                        <p>Логин</p>
                         <input type="text" placeholder="Enter your email" name="username"
                                onChange={this.changeInputHandler}/>
                     </div>
-                    <div>
+                    <div className="inputs">
+                        <p>Пароль</p>
                         <input type="password" placeholder="Enter your password" name="password"
                                onChange={this.changeInputHandler}/>
                     </div>
-                    <div>
+                    <div className="button">
                         <button type="submit" id="login">Login</button>
                     </div>
-                    <div>
-                        {this.props.loginError && (
-                            <h5 className="error">{this.props.loginError.error}</h5>
-                        )}
-                    </div>
                 </form>
+            </div>
             </div>
         );
     }
@@ -54,7 +62,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
     user: state.user.user,
-    loginError: state.user.loginError
+    loginError: state.user.loginError,
 });
 
 const mapDispatchToProps = dispatch => ({

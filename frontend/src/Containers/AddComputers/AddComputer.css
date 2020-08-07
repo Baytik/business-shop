@@ -1,0 +1,73 @@
+.AddComputersContainer {
+    background: url('https://images.wallpaperscraft.com/image/laptop_backlight_dark_164993_3840x2400.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+.text_add {
+    color: white;
+    text-align: center;
+    font-family: 'sans-serif',FreeMono;
+    line-height: 100px;
+}
+.inputs_2 {
+
+}
+.inputs_block_1 , .inputs_block_2 ,.inputs_block_3 ,  .inputs_block_4{
+    margin-top: 40px;
+}
+.inputs_block_1  input , .inputs_block_2  input , .inputs_block_3  input ,  .inputs_block_4  input {
+    width: 22%;
+    margin-top: 1%;
+    margin-left: 100px;
+    height: 30px;
+    outline: none;
+    border-radius:0;
+    border: 0px;
+    border-bottom: 3px solid transparent;
+    background: rgba(55, 55, 55, 0.91);
+    padding-left: 5px;
+    font-family: 'sans-serif', FreeMono;
+    color: white;
+}
+.inputs_block_1  input:focus , .inputs_block_2  input:focus , .inputs_block_3  input:focus {
+    border-bottom: 3px solid white;
+}
+.pc_title textarea {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    outline: none;
+    border-radius:0;
+    border: 0px;
+    border-bottom: 3px solid transparent;
+    background: rgba(55, 55, 55, 0.91);
+    padding-left: 5px;
+    font-family: 'sans-serif', FreeMono;
+    color: white;
+}
+.btns button{
+    width: 30%;
+    background: transparent;
+    border: 2px solid white;
+    height: 40px;
+    cursor: pointer;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 13%;
+    color: white;
+    margin-top: 5%;
+    text-shadow: 1px 1px 15px white;
+}
+.add:hover {
+    transition: all 0.5s;
+    background: rgba(0, 0, 83, 0.91);
+    text-shadow: 0px 0px 5px white;
+}
+.cancel:hover {
+    transition: all 0.5s;
+    background: rgba(97, 3, 0, 0.91);
+    text-shadow: 0px 0px 5px white;
+}
