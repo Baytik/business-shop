@@ -18,7 +18,7 @@ export const loginUser = user => {
         try {
             const response = await axiosAPI.post('/users/sessions', user);
             dispatch(loginUserSuccess(response.data));
-            dispatch(push('/'));
+            dispatch(push('/computers'));
         } catch (error) {
             dispatch(loginUserError(error.response.data))
         }
@@ -31,7 +31,7 @@ export const logoutUser = () => {
             const token = getState().user.user;
             await axiosAPI.delete('/users/sessions',{headers: {'Authorization': token.token}});
             dispatch(logoutUserSuccess());
-            dispatch(push('/'));
+            dispatch(push('/computers'));
         } catch (error) {
             dispatch(logoutUserError(error));
         }

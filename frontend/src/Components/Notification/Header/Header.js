@@ -11,19 +11,20 @@ class Header extends Component {
 
     state = {
         menu: false,
-        display:'',
-        show:'',
+        display: '',
+        show: '',
     };
 
     showMenuHandler = () => {
-      this.setState({display: 'block',show: 'none'});
+        this.setState({display: 'block', show: 'none'});
     };
 
     closeMenuHandler = () => {
-      this.setState({display: 'none',show: 'block'});
+        this.setState({display: 'none', show: 'block'});
     };
 
     render() {
+        console.log(this.props.user)
         return (
             <header className="head">
                 <div className="logo">
@@ -31,22 +32,28 @@ class Header extends Component {
                 </div>
                 <nav className="main-nav">
                     <ul className="main-ul">
-                                <li className="link-1">
-                                    <NavLink to="/">О нас</NavLink>
-                                </li>
-                                <li className="link-2">
-                                    <NavLink to="/computers">Список Компьютеров</NavLink>
-                                </li>
-                                <li className="link-3">
-                                    <NavLink to="/">Служба поддержки</NavLink>
-                                </li>
-                                <li className="link-4">
-                                    <NavLink to="/">Отзывы</NavLink>
-                                </li>
-                        </ul>
+                        <li className="link-1">
+                            <NavLink to="/">О нас</NavLink>
+                        </li>
+                        <li className="link-2">
+                            <NavLink to="/computers">Список Компьютеров</NavLink>
+                        </li>
+                        <li className="link-3">
+                            <NavLink to="/">Служба поддержки</NavLink>
+                        </li>
+                        <li className="link-4">
+                            <NavLink to="/">Отзывы</NavLink>
+                        </li>
+                        {this.props.user && (
+                            <li>
+                                <button onClick={() => this.props.logoutUser(this.props.user)}>Выйти</button>
+                            </li>
+                        )}
+                    </ul>
                     <div className="menu">
-                        <img onClick={this.showMenuHandler} src={menu} alt="" style={{display:`${this.state.show}`}} className="menu_img"/>
-                        <ul className="sub-nav" style={{display:`${this.state.display}`}}>
+                        <img onClick={this.showMenuHandler} src={menu} alt="" style={{display: `${this.state.show}`}}
+                             className="menu_img"/>
+                        <ul className="sub-nav" style={{display: `${this.state.display}`}}>
                             <img onClick={this.closeMenuHandler} src={close} alt="" className="close"/>
                             <li>
                                 <NavLink to="/">О нас</NavLink>
@@ -59,6 +66,9 @@ class Header extends Component {
                             </li>
                             <li>
                                 <NavLink to="/">Отзывы</NavLink>
+                            </li>
+                            <li>
+                                <button onClick={() => this.props.logoutUser(this.props.user)}>Выйти</button>
                             </li>
                         </ul>
                     </div>

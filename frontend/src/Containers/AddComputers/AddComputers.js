@@ -42,6 +42,10 @@ class AddComputers extends Component {
       this.setState({[e.target.name]: e.target.value});
     };
 
+    fileChangeHandler = e => {
+        this.setState({[e.target.name]: e.target.files[0]})
+    };
+
     addPcHandler = () => {
       const computer = {
           box: this.state.box,
