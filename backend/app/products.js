@@ -65,8 +65,8 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
     try {
         await product.save();
         return res.send(product);
-    } catch (e) {
-        return res.status(400).send(e);
+    } catch (error) {
+        return res.status(400).send(error);
     }
 });
 
