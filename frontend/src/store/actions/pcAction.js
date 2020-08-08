@@ -13,7 +13,7 @@ export const sendPc = (computer) => {
         try {
             const token = getState().user.user;
             dispatch(postPcRequest());
-            const send = await axiosAPI.post('/products', computer, {headers: {'Authorization': token.token}});
+            const send = await axiosAPI.post('/computers', computer, {headers: {'Authorization': token.token}});
             dispatch(postPcSuccess(send))
         } catch(error) {
             dispatch(postPcError(error))

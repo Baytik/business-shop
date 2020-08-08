@@ -1,1 +1,1 @@
-export const Categories = ['офисный','бюджетно-игровой','игровой'];
+export const Categories = ['office','budget-gaming','gaming'];
