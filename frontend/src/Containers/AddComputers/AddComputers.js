@@ -7,6 +7,7 @@ import './AddComputer.css';
 import {sendPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
 import Spinner from "../../Components/Spinner/Spinner";
+import {Categories} from "../../Categories";
 
 class AddComputers extends Component {
 
@@ -21,7 +22,10 @@ class AddComputers extends Component {
         power:'',
         motherBoard:'',
         pcName:'',
-        monitor:''
+        monitor:'',
+        price:'',
+        image:'',
+        categories: Categories[0]
     };
 
     componentDidMount() {
@@ -44,12 +48,16 @@ class AddComputers extends Component {
           power: this.state.power,
           motherBoard: this.state.motherBoard,
           pcName: this.state.pcName,
-          monitor: this.state.monitor
+          monitor: this.state.monitor,
+          price: this.state.price,
+          image:this.state.image,
+          categories: this.state.categories
       };
        this.props.sendPc(computer);
     };
 
     render() {
+        console.log(this.state);
         return (
             <div className="AddComputersContainer">
                 <Header/>
@@ -85,11 +93,21 @@ class AddComputers extends Component {
                         <div className="inputs_block_4">
                             <input type="text" placeholder="monitor..." onChange={this.inputValHandler} name="monitor"/>
                             <input type="text" placeholder="pc name..." onChange={this.inputValHandler} name="pcName"/>
+                            <input type="text" placeholder="pc image..." onChange={this.inputValHandler} name="image"/>
+                        </div>
+
+                        <div className="inputs_block_5">
+                            <input type="text" placeholder="price..." onChange={this.inputValHandler} name="price"/>
+                            <select onChange={this.inputValHandler} name="categories">
+                                {Categories.map(category => (
+                                    <option key={category}>{category}</option>
+                                ))}
+                            </select>
                         </div>
 
                         <div className="btns">
                             <button onClick={this.addPcHandler} className="add">Добавить</button>
-                            <button className="cancel">Отмена</button>
+                            <button onClick={() => this.props.history.push('/computers')} className="cancel">Отмена</button>
                         </div>
                     </div>
                 )}

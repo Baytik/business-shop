@@ -3,7 +3,7 @@
     background-attachment: fixed;
     background-size: cover;
     width: 100%;
-    height: 700px;
+    height: 100%;
 }
 .text_add {
     color: white;
@@ -14,10 +14,10 @@
 .inputs_2 {
 
 }
-.inputs_block_1 , .inputs_block_2 ,.inputs_block_3 ,  .inputs_block_4{
+.inputs_block_1 , .inputs_block_2 ,.inputs_block_3 ,  .inputs_block_4 ,  .inputs_block_5{
     margin-top: 40px;
 }
-.inputs_block_1  input , .inputs_block_2  input , .inputs_block_3  input ,  .inputs_block_4  input {
+.inputs_block_1  input , .inputs_block_2  input , .inputs_block_3  input ,  .inputs_block_4  input ,  .inputs_block_5  input {
     width: 22%;
     margin-top: 1%;
     margin-left: 100px;
@@ -31,8 +31,22 @@
     font-family: 'sans-serif', FreeMono;
     color: white;
 }
-.inputs_block_1  input:focus , .inputs_block_2  input:focus , .inputs_block_3  input:focus {
+.inputs_block_1  input:focus , .inputs_block_2  input:focus , .inputs_block_3  input:focus ,  .inputs_block_4  input:focus , .inputs_block_5  input:focus {
     border-bottom: 3px solid white;
+}
+.inputs_block_5  select{
+    width: 22.5%;
+    margin-top: 1%;
+    margin-left: 100px;
+    height: 30px;
+    outline: none;
+    border-radius:0;
+    border: 0px;
+    border-bottom: 3px solid transparent;
+    background: rgba(55, 55, 55, 0.91);
+    padding-left: 5px;
+    font-family: 'sans-serif', FreeMono;
+    color: white;
 }
 .pc_title textarea {
     width: 80%;
