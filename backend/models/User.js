@@ -21,6 +21,10 @@ const UserSchema = new Schema({
         required: true,
         enum: ['seller', 'admin', 'operator']
     },
+    displayName: {
+      type: String,
+      required: true
+    },
     token: {
         type: String,
         required: true

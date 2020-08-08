@@ -25,7 +25,7 @@ class AddComputers extends Component {
         monitor: '',
         price: '',
         image: 'загрузить фото',
-        categories: Categories[0]
+        category: Categories[0]
     };
 
     componentDidMount() {
@@ -46,23 +46,11 @@ class AddComputers extends Component {
         this.setState({[e.target.name]: e.target.files[0]})
     };
 
-    addPcHandler = async (event) => {
-        event.preventDefault();
+    addPcHandler = async () => {
         const computer = new FormData();
-        computer.append('box', this.state.box);
-        computer.append('cpu', this.state.cpu);
-        computer.append('gpu', this.state.gpu);
-        computer.append('ram', this.state.ram);
-        computer.append('ssd', this.state.ssd);
-        computer.append('hdd', this.state.hdd);
-        computer.append('cooler', this.state.cooler);
-        computer.append('power', this.state.power);
-        computer.append('motherBoard', this.state.motherBoard);
-        computer.append('pcName', this.state.pcName);
-        computer.append('monitor', this.state.monitor);
-        computer.append('price', this.state.price);
-        computer.append('image', this.state.image);
-        computer.append('category', this.state.categories);
+        Object.keys(this.state).forEach(key => {
+            computer.append(key, this.state[key]);
+        });
         await this.props.sendPc(computer);
     };
 
@@ -103,14 +91,14 @@ class AddComputers extends Component {
                         <div className="inputs_block_4">
                             <input type="text" placeholder="monitor..." onChange={this.inputValHandler} name="monitor"/>
                             <input type="text" placeholder="pc name..." onChange={this.inputValHandler} name="pcName"/>
-                            <input type="text" placeholder="price..." onChange={this.inputValHandler} name="price"/>
+                            <input type="number" placeholder="price..." onChange={this.inputValHandler} name="price"/>
                         </div>
 
                         <div className="inputs_block_5">
                             <input type="file" name="image" id="image" className="inputfile"
                                    onChange={this.fileChangeHandler}/>
                             <label htmlFor="image" id="label_for_file">Загрузить фото</label>
-                            <select onChange={this.inputValHandler} name="categories">
+                            <select onChange={this.inputValHandler} name="category">
                                 {Categories.map(category => (
                                     <option key={category}>{category}</option>
                                 ))}

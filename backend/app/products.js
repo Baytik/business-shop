@@ -39,7 +39,6 @@ router.get('/category/:category', async (req, res) => {
 });
 
 router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], async (req, res) => {
-    console.log(req.body)
     if (req.file) {
         req.body.image = req.file.filename;
     }
