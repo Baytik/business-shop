@@ -24,12 +24,18 @@ class AddComputers extends Component {
         pcName:'',
         monitor:'',
         price:'',
-        image:'',
+        image:'загрузить фото',
         categories: Categories[0]
     };
 
     componentDidMount() {
         new WOW().init();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if((this.state.image).length >= 30){
+            this.setState({image: 'фото загружено'})
+        }
     }
 
     inputValHandler = (e) => {
@@ -57,9 +63,8 @@ class AddComputers extends Component {
     };
 
     render() {
-        console.log(this.state);
         return (
-            <div className="AddComputersContainer">
+            <div className="AddComputersContainer animate__animated animate__fadeIn">
                 <Header/>
                 <h1 className="text_add">Добовляй что-бы заработать!</h1>
                 {this.props.spinner === true ? (
@@ -93,11 +98,12 @@ class AddComputers extends Component {
                         <div className="inputs_block_4">
                             <input type="text" placeholder="monitor..." onChange={this.inputValHandler} name="monitor"/>
                             <input type="text" placeholder="pc name..." onChange={this.inputValHandler} name="pcName"/>
-                            <input type="text" placeholder="pc image..." onChange={this.inputValHandler} name="image"/>
+                            <input type="text" placeholder="price..." onChange={this.inputValHandler} name="price"/>
                         </div>
 
                         <div className="inputs_block_5">
-                            <input type="text" placeholder="price..." onChange={this.inputValHandler} name="price"/>
+                            <input type="file" name="image" id="image" className="inputfile" onChange={this.inputValHandler}/>
+                            <label htmlFor="image" id="label_for_file">{this.state.image}</label>
                             <select onChange={this.inputValHandler} name="categories">
                                 {Categories.map(category => (
                                     <option key={category}>{category}</option>

@@ -31,7 +31,7 @@
     font-family: 'sans-serif', FreeMono;
     color: white;
 }
-.inputs_block_1  input:focus , .inputs_block_2  input:focus , .inputs_block_3  input:focus ,  .inputs_block_4  input:focus , .inputs_block_5  input:focus {
+.inputs_block_1  input:focus , .inputs_block_2  input:focus , .inputs_block_3  input:focus ,  .inputs_block_4  input:focus , .inputs_block_5  input:focus , #label_for_file{
     border-bottom: 3px solid white;
 }
 .inputs_block_5  select{
@@ -45,6 +45,24 @@
     border-bottom: 3px solid transparent;
     background: rgba(55, 55, 55, 0.91);
     padding-left: 5px;
+    font-family: 'sans-serif', FreeMono;
+    color: white;
+}
+.inputfile {
+    display: none;
+}
+#label_for_file {
+    padding-left: 6.3%;
+    padding-right: 6.3%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 1%;
+    margin-left: 100px;
+    outline: none;
+    border-radius:0;
+    border: 0px;
+    border-bottom: 3px solid transparent;
+    background: rgba(55, 55, 55, 0.91);
     font-family: 'sans-serif', FreeMono;
     color: white;
 }
