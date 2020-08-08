@@ -64,12 +64,10 @@ class AddComputers extends Component {
                 ) : (
                     <div className="inputs_2">
                         <div className="inputs_block_1">
-
                             <input type="text" placeholder="box..." onChange={this.inputValHandler} name="box"/>
                             <input type="text" placeholder="mother board..." onChange={this.inputValHandler}
                                    name="motherBoard"/>
                             <input type="text" placeholder="cooler..." onChange={this.inputValHandler} name="cooler"/>
-
                         </div>
 
                         <div className="inputs_block_2">
@@ -81,11 +79,9 @@ class AddComputers extends Component {
                         </div>
 
                         <div className="inputs_block_3">
-
                             <input type="text" placeholder="hdd..." onChange={this.inputValHandler} name="hdd"/>
                             <input type="text" placeholder="ssd..." onChange={this.inputValHandler} name="ssd"/>
                             <input type="text" placeholder="power..." onChange={this.inputValHandler} name="power"/>
-
                         </div>
 
                         <div className="inputs_block_4">
