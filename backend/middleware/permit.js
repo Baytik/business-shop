@@ -4,7 +4,7 @@ const permit = (...roles) => {
             return res.status(401).send({message: 'Unauthenticated'});
         }
         if (!roles.includes(req.user.role)) {
-            return res.status(403).send({message: 'Forbidden'});
+            return res.status(403).send({message: 'У вас нет разрешения'});
         }
         next();
     }
