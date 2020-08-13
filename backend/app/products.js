@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 router.get('/', async (req, res) => {
-    const products = await Product.find();
+    const products = await Product.find().sort({price: +1});
     return res.send(products)
 });
 
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/category/:category', async (req, res) => {
-    const products = await Product.find({category: req.params.category});
+    const products = await Product.find({category: req.params.category}).sort({price: +1});
     res.send(products)
 });
 
