@@ -4,6 +4,7 @@ const config = require('../config');
 const path = require('path');
 const {nanoid} = require('nanoid');
 const multer = require('multer');
+const fs = require('fs');
 
 const Product = require('../models/Product');
 const auth = require('../middleware/auth');
@@ -71,13 +72,20 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
 });
 
 router.delete('/:id', [auth, permit('admin', 'seller')], async (req, res) => {
-   await Product.deleteOne({_id: req.params.id});
-   try {
-       return res.send({message: 'Was deleted'})
-   } catch (error) {
-       return res.status(400).send(error)
-   }
-
+    const products = await Product.findOne({_id: req.params.id});
+    fs.unlink('./public/uploads/' + products.image, function (err) {
+        if (err) {
+            return res.status(400).send(err)
+        } else {
+            console.log('OK')
+        }
+    });
+    await Product.deleteOne({_id: req.params.id});
+    try {
+        return res.send({message: 'Was deleted'})
+    } catch (error) {
+        return res.status(400).send(error)
+    }
 });
 
 module.exports = router;
