@@ -70,4 +70,14 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
     }
 });
 
+router.delete('/:id', [auth, permit('admin', 'seller')], async (req, res) => {
+   await Product.deleteOne({_id: req.params.id});
+   try {
+       return res.send({message: 'Was deleted'})
+   } catch (error) {
+       return res.status(400).send(error)
+   }
+
+});
+
 module.exports = router;
