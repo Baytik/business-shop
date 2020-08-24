@@ -86,7 +86,9 @@ export const postIdForSold = (id) => {
       try {
           dispatch(postIdRequest());
           const token = getState().user.user;
-          const sendId = await axiosAPI.put(`/computers/review/${id}`,{headers: {'Authorization': token.token}});
+          const sendId = await axiosAPI.put(`/computers/review/${id}`, id,
+              {headers: {'Authorization': token.token}});
+          console.log(sendId)
           dispatch(postIdSuccess(sendId))
       } catch (error) {
           dispatch(postIdError(error))
