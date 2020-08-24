@@ -1,9 +1,15 @@
 .MainContainer {
-    background: url("https://images.wallpaperscraft.ru/image/neon_svechenie_sistema_161925_3840x2160.jpg") no-repeat;
+    background: url("../../Components/Images/office_bg.jpg") no-repeat;
     background-size:  cover;
     background-attachment: fixed;
     width: 100%;
     height: 100%;
+}
+.main_container {
+    width: 100%;
+    padding-bottom: 75px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.55) 100%);
+    padding-top: 5%;
 }
 .computer_block {
     display: flex;
@@ -14,14 +20,12 @@
     display: flex;
     margin-left: 20px;
 }
-.block_info_2 {
-    margin-top: 20px;
-}
 .computer_img h3 {
     font-family: sans-serif;
     color: white;
     margin: 0px;
     padding-top: 20px;
+    text-transform: capitalize;
     text-align: center;
     animation: neon .2s ease-in-out infinite alternate;
 }
@@ -39,6 +43,7 @@
 }
 .computer_img img{
     width: 300px;
+    height: 300px;
 }
 .computer_img {
     display: flex;
@@ -74,6 +79,7 @@
     font-size: 15px;
     width: 200px;
     margin-left: 20px;
+    text-transform: capitalize;
 }
 .block_by {
     width: 280px;
@@ -137,4 +143,144 @@
 }
 .by:hover > .text_1 , .by:focus > .text_1 {
     display: none;
+}
+.category_nav p {
+    color: white;
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+    font-family: 'sans-serif',FreeMono;
+    text-align: center;
+    padding-top: 15px;
+}
+.category_nav {
+    width: 245px;
+    width: 100%;
+}
+.category_nav ul {
+    position: relative;
+    padding: 0;
+    margin: 0px;
+    width: 100%;
+}
+.category_nav:hover > ul {
+    display: block;
+}
+.category_nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'sans-serif',FreeMono;
+    text-transform:capitalize;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.category_nav li {
+    list-style: none;
+    width: 240px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.91);
+    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+    width: 100%;
+}
+.category_nav li:hover {
+    background: #141414;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    transition: all 0.3s;
+}
+.category_nav li:hover > a {
+    text-shadow: 1px 1px 20px white;
+}
+.category_nav ul {
+    display: none;
+}
+.control {
+    width: 1200px;
+    margin-left: 5%;
+    margin-top: 3%;
+    height: 50px;
+    display: flex;
+    background: rgba(0, 0, 0, 0.91);
+}
+.prices {
+    display: flex;
+}
+.prices input {
+    height: 20px;
+    width: 250px;
+    outline: none;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 13px;
+    padding-left: 5px;
+    border-top:0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 2px;
+    color: white;
+    text-shadow: 0px 5px 15px white;
+    border-bottom: 2px solid transparent;
+    background:rgba(76,75,76,0.62);
+    margin-top: 12px;
+}
+.prices button {
+    width: 150px;
+    height: 30px;
+    background: transparent;
+    color: white;
+    font-family: 'sans-serif',FreeMono;
+    text-align:center;
+    margin-top: 10px;
+    border: 2px solid white;
+    margin-left: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.prices button:hover {
+    background: white;
+    color: black;
+    box-shadow: 1px 1px 20px blue;
+}
+.delete {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 18%;
+    margin-top: -0.1%;
+    text-decoration: none;
+    cursor: pointer;
+}
+.delete:hover {
+    transition: all 0.5s;
+    color: red;
+    text-shadow: 1px 1px 10px red;
+}
+.text_price {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'sans-serif',FreeMono;
+    width: 80px;
+}
+.text_and {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    width:50px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'sans-serif',FreeMono;
 }

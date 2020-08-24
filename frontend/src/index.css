@@ -4,3 +4,6 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+::selection {
+  background: #cd2c2f;
+}

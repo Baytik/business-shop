@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import Header from "../../Components/Notification/Header/Header";
 import Footer from "../../Components/Notification/Footer/Footer";
 import WOW from 'wow.js';
-import 'animate.css';
-import './AddComputer.css';
 import {sendPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
 import Spinner from "../../Components/Spinner/Spinner";
 import {Categories} from "../../Categories";
+import {toast,ToastContainer} from "react-toastify";
+import 'animate.css';
+import './AddComputer.css';
+import './MediaAddComputer.css';
 
 class AddComputers extends Component {
 
@@ -24,18 +25,13 @@ class AddComputers extends Component {
         pcName: '',
         monitor: '',
         price: '',
-        image: 'загрузить фото',
-        category: Categories[0]
+        image: '',
+        category: Categories[0],
+        text:'Загрузите фото'
     };
 
     componentDidMount() {
         new WOW().init();
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if ((this.state.image).length >= 30) {
-            this.setState({image: 'фото загружено'})
-        }
     }
 
     inputValHandler = (e) => {
@@ -47,17 +43,29 @@ class AddComputers extends Component {
     };
 
     addPcHandler = async () => {
-        const computer = new FormData();
-        Object.keys(this.state).forEach(key => {
-            computer.append(key, this.state[key]);
-        });
-        await this.props.sendPc(computer);
+        if(this.props.postPcError){
+            toast.error(`${this.props.postPcError._message}`);
+        } else {
+            const computer = new FormData();
+            Object.keys(this.state).forEach(key => {
+                computer.append(key, this.state[key]);
+            });
+            await this.props.sendPc(computer);
+            toast.success('Компьютер добавлен успешно!')
+        }
     };
 
     render() {
+
+        if(this.props.user && this.props.user.role === 'operator') {
+            this.props.history.push('/computers')
+        }else if (! this.props.user){
+            this.props.history.push('/computers')
+        }
+
         return (
-            <div className="AddComputersContainer animate__animated animate__fadeIn">
-                <Header/>
+            <div className="AddComputersContainer">
+                <ToastContainer/>
                 <h1 className="text_add">Добовляй что-бы заработать!</h1>
                 {this.props.spinner === true ? (
                     <Spinner/>
@@ -93,7 +101,7 @@ class AddComputers extends Component {
                         <div className="inputs_block_5">
                             <input type="file" name="image" id="image" className="inputfile"
                                    onChange={this.fileChangeHandler}/>
-                            <label htmlFor="image" id="label_for_file">Загрузить фото</label>
+                            <label htmlFor="image" id="label_for_file">{this.state.image ? 'Фото загружено': this.state.text}</label>
                             <select onChange={this.inputValHandler} name="category">
                                 {Categories.map(category => (
                                     <option key={category}>{category}</option>
@@ -116,6 +124,8 @@ class AddComputers extends Component {
 
 const mapStateToProps = state => ({
     spinner: state.pc.spinner,
+    postPcError: state.pc.postPcError,
+    user: state.user.user,
 });
 
 const mapStateToDispatch = (dispatch) => ({

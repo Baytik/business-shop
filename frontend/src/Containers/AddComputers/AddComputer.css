@@ -1,5 +1,5 @@
 .AddComputersContainer {
-    background: url('https://images.wallpaperscraft.com/image/laptop_backlight_dark_164993_3840x2400.jpg') no-repeat;
+    background: url('../../Components/Images/addComputerBg.jpg') no-repeat;
     background-attachment: fixed;
     background-size: cover;
     width: 100%;
@@ -9,10 +9,8 @@
     color: white;
     text-align: center;
     font-family: 'sans-serif',FreeMono;
-    line-height: 100px;
-}
-.inputs_2 {
-
+    padding-top: 50px;
+    margin: 0;
 }
 .inputs_block_1 , .inputs_block_2 ,.inputs_block_3 ,  .inputs_block_4 ,  .inputs_block_5{
     margin-top: 40px;

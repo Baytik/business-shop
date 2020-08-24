@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
                 <footer>
-                    <p className="footer_text">© copyright: 2020 Anonymous™ HAGAPS <br/>No Rights Reserved</p>
+                    <p className="footer_text">© copyright: 2020 Anonymous™ HAGAPS <br/>All Rights Reserved</p>
                 </footer>
         );
     }

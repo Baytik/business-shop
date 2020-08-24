@@ -1,9 +1,9 @@
 footer {
     background: #0e0e0e;
     height: 80px;
-    margin-top: 40px;
 }
 footer p {
+    margin: 0px;
     color: white;
     text-transform: capitalize;
     font-family: 'sans-serif' , FreeMono;

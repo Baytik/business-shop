@@ -1,4 +1,7 @@
 @media screen and (max-width: 1125px){
+    .computer_block {
+        margin-left: 10%;
+    }
     .computer_info {
         width: 350px;
     }
@@ -12,7 +15,7 @@
         margin-left: 10px;
     }
     .tovar_info {
-        font-size: 10px;
+        font-size: 11px;
         width: 125px;
     }
     .info {
@@ -23,15 +26,32 @@
         font-size: 12px;
     }
     .category , .price {
-        font-size: 12px;
+        font-size: 11px;
+    }
+    .computer_img {
+        height: 300px;
+    }
+    .computer_img img {
+        height: 250px;
+        width: 250px;
+    }
+    .control {
+        width: 1020px;
+    }
+    .text_and {
+        width: 40px;
+    }
+    .prices input {
+        width: 160px;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .computer_block {
-        margin-left: 3%;
+        margin-left: 4%;
     }
     .computer_img img {
         width: 200px;
+        height: 200px;
     }
     .computer_img {
         width: 200px;
@@ -64,6 +84,26 @@
     }
     .text_1 , .text_2{
         font-size: 10px;
+    }
+    .control {
+        width: 720px;
+        margin-left: 4%;
+        margin-top: 5%;
+    }
+    .prices {
+        margin-left: 0;
+    }
+    .prices p {
+        margin-top: 18px;
+        font-size: 12px;
+    }
+    .prices input {
+        width: 100px;
+    }
+    .prices button {
+        width: 80px;
+        font-size: 10px;
+        font-weight: bold;
     }
 }
 @media screen and (max-width: 660px){
@@ -102,15 +142,66 @@
         display: flex;
         flex-wrap: wrap;
     }
+    .category_nav a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .category_nav li {
+        width: 200px;
+    }
+    .category_nav {
+        width: 200px;
+    }
+    .category_nav p {
+        width: 200px;
+    }
+    .prices input {
+        width: 80px;
+    }
+    .control {
+        width: 610px;
+        margin-top: 7%;
+    }
 }
 @media screen and (max-width: 658px) {
     .computer_block {
         margin-left: 12%;
     }
+    .prices {
+        display: block;
+    }
+    .control {
+        display: block;
+        height: 240px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .prices button {
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+    .prices p {
+        text-align: center;
+        width: 100%;
+        margin: 0px;
+        padding-top: 10px;
+    }
+    .prices input {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .category_nav , .category_nav ul , .category_nav p , .category_nav li{
+        width: 100%;
+    }
 }
 @media screen and (max-width: 568px) {
     .computer_block {
         margin-left: 10%;
+    }
+    .control {
+        margin-top: 25%;
     }
 }
 @media screen and (max-width: 514px) {
@@ -125,12 +216,17 @@
 }
 @media screen and (max-width: 480px) {
     .computer_block {
+        margin-left: 6%;
+    }
+}
+@media screen and (max-width: 460px){
+    .computer_block{
         margin-left: 4%;
     }
 }
 @media screen and (max-width: 450px) {
     .computer_block {
-        margin-left: 2%;
+        margin-left: 3%;
     }
 }
 @media screen and (max-width: 430px) {
@@ -144,6 +240,7 @@
     }
     .computer_img img {
         width: 300px;
+        height: 300px;
     }
     .computer_img {
         width: 300px;
@@ -202,10 +299,16 @@
     footer p {
         font-size: 14px;
     }
+    .control {
+        width: 320px;
+    }
 }
 @media screen and (max-width: 340px){
     .computer_block {
         margin-left: 3%;
+    }
+    .control {
+        width: 300px;
     }
 }
 @media screen and (max-width: 320px){
@@ -217,6 +320,7 @@
     }
     .computer_img img {
         width: 280px;
+        height: 280px;
     }
     .computer_info {
         width: 280px;
@@ -229,5 +333,8 @@
     }
     .by {
         margin-left: 20px;
+    }
+    .control {
+        width: 280px;
     }
 }

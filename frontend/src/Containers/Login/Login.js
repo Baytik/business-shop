@@ -33,7 +33,7 @@ class Login extends Component {
     };
 
     render() {
-        if (this.props.user) return <Redirect to="/"/>;
+        if (this.props.user) return <Redirect to="/computers"/>;
         return (
             <div className="LoginContainer">
                 <ToastContainer/>

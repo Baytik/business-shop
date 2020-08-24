@@ -3,7 +3,7 @@ import {LOGIN_USER_ERROR, LOGIN_USER_SUCCESS, LOGOUT_USER_SUCCESS} from "../acti
 const initialState = {
     user: null,
     loginError: null,
-    registerError: null
+    registerError: null,
 };
 
 const usersReducer = (state = initialState, action) => {

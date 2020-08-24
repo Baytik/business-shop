@@ -53,8 +53,9 @@ class Greeting extends Component {
                         </div>
                     </div>
                     <div className="lets wow animate__animated animate__fadeInLeftBig">
-                        <button onClick={() => this.props.history.push('/computers')} className="btn effect04"
-                                data-sm-link-text="Список компьютеров"><span>Просмотреть</span></button>
+                        <a href="/computers">
+                            <button className="btn effect04" data-sm-link-text="Список компьютеров"><span>Просмотреть</span></button>
+                        </a>
                     </div>
                 </div>
             </div>

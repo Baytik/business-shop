@@ -203,6 +203,9 @@ color: black;
     width: 200px;
     margin-left: 35%;
 }
+.lets a {
+    text-decoration: none;
+}
 hr {
     border: 1px solid white;
 }
