@@ -82,11 +82,11 @@ export const deletePC = (id) => {
 };
 
 export const postIdForSold = (id) => {
-  return async (dispatch,getState) => {
+  return async (dispatch, getState) => {
       try {
           dispatch(postIdRequest());
           const token = getState().user.user;
-          const sendId = await axiosAPI.post(`/computers`, id ,{headers:{'Authorization': token.token}});
+          const sendId = await axiosAPI.put(`/computers/review/${id}`,{headers: {'Authorization': token.token}});
           dispatch(postIdSuccess(sendId))
       } catch (error) {
           dispatch(postIdError(error))

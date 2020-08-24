@@ -7,6 +7,7 @@ const multer = require('multer');
 const fs = require('fs');
 
 const Product = require('../models/Product');
+const Review = require('../models/Review');
 const auth = require('../middleware/auth');
 const permit = require('../middleware/permit');
 
@@ -27,7 +28,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const products = await Product.find({_id: req.params.id});
+        const products = await Product.findOne({_id: req.params.id});
         res.send(products)
     } catch (e) {
         return res.status(404).send('Not Found')
@@ -68,6 +69,33 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
         return res.send(product);
     } catch (error) {
         return res.status(400).send(error);
+    }
+});
+
+router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) => {
+    const products = await Product.findOne({_id: req.params.id});
+    if (products) {
+        fs.unlink('./public/uploads/' + products.image, function (err) {
+            if (err) {
+                return res.status(400).send(err)
+            } else {
+                console.log('OK')
+            }
+        });
+    }
+
+    try {
+        const review = new Review({
+            pcName: products.pcName,
+            price: products.price,
+            key: nanoid(7),
+            review: 'No Comment',
+        });
+        await review.save();
+        await Product.deleteOne({_id: req.params.id});
+        res.send(review)
+    } catch (e) {
+        return res.status(404).send({error: 'Computer not found'})
     }
 });
 
