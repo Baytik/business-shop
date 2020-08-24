@@ -57,10 +57,9 @@ class Details extends Component {
     render() {
         return (
             <div className="DetailsContainer" id="container">
-                {this.props.detailsPc && Object.keys(this.props.detailsPc).map(detail => (
-                        <div className="computer_all_details" key={detail}>
+                        <div className="computer_all_details">
                             <div className="pc_name animate__animated animate__fadeInDown">
-                                <h2>Подробнее о {this.props.detailsPc[detail].pcName}</h2>
+                                <h2>Подробнее о {this.props.detailsPc.pcName}</h2>
                             </div>
                             <div className="computer_details">
                                 <div className="details_info_1">
@@ -69,14 +68,14 @@ class Details extends Component {
                                             <img src={cpu} alt={cpu}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Процессор:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].cpu}</p>
+                                                <p className="detail_info">{this.props.detailsPc.cpu}</p>
                                             </div>
                                         </div>
                                         <div className="pc_gpu">
                                             <img src={gpu} alt={gpu}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Видеокарта:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].gpu}</p>
+                                                <p className="detail_info">{this.props.detailsPc.gpu}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -85,14 +84,14 @@ class Details extends Component {
                                             <img src={ram} alt={ram}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">ОЗУ:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].ram}</p>
+                                                <p className="detail_info">{this.props.detailsPc.ram}</p>
                                             </div>
                                         </div>
                                         <div className="pc_board">
                                             <img src={board} alt={board}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Мат. Плата:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].motherBoard}</p>
+                                                <p className="detail_info">{this.props.detailsPc.motherBoard}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -101,21 +100,21 @@ class Details extends Component {
                                             <img src={power} alt={power}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Блок Пиатния:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].power}</p>
+                                                <p className="detail_info">{this.props.detailsPc.power}</p>
                                             </div>
                                         </div>
                                         <div className="pc_cooler">
                                             <img src={cooler} alt={cooler}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Кулер:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].cooler}</p>
+                                                <p className="detail_info">{this.props.detailsPc.cooler}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="details_info_2">
                                     <div className="pc_image">
-                                        <img src={apiURL + '/uploads/' + this.props.detailsPc[detail].image} alt={this.props.detailsPc[detail].image}/>
+                                        <img src={apiURL + '/uploads/' + this.props.detailsPc.image} alt={this.props.detailsPc.image}/>
                                     </div>
                                 </div>
                                 <div className="details_info_3">
@@ -124,14 +123,14 @@ class Details extends Component {
                                             <img src={ssd} alt={ssd}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">SSD:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].ssd}</p>
+                                                <p className="detail_info">{this.props.detailsPc.ssd}</p>
                                             </div>
                                         </div>
                                         <div className="pc_hdd">
                                             <img src={hdd} alt={hdd}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">HDD:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].hdd}</p>
+                                                <p className="detail_info">{this.props.detailsPc.hdd}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -140,14 +139,14 @@ class Details extends Component {
                                             <img src={monitor} alt={monitor}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Монитор:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].monitor}</p>
+                                                <p className="detail_info">{this.props.detailsPc.monitor}</p>
                                             </div>
                                         </div>
                                         <div className="pc_box">
                                             <img src={box} alt={box}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Корпус:</p>
-                                                <p className="detail_info">{this.props.detailsPc[detail].box}</p>
+                                                <p className="detail_info">{this.props.detailsPc.box}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +162,7 @@ class Details extends Component {
                                             <img src={price} alt={price}/>
                                             <div className="detail_title">
                                                 <p className="detail_name">Цена:</p>
-                                                <p className="price_info">{this.props.detailsPc[detail].price}</p>
+                                                <p className="price_info">{this.props.detailsPc.price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -172,13 +171,12 @@ class Details extends Component {
                         <div className="back_and_sold">
                             <button className="back" onClick={() => this.props.history.push('/computers')}>назад</button>
                             {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
-                                <button className="sold" onClick={() => this.sendId(this.props.detailsPc[detail]._id)}>продано</button>
+                                <button className="sold" onClick={() => this.sendId(this.props.detailsPc._id)}>продано</button>
                             ) : (
                                 <></>
                             )}
                         </div>
                         </div>
-                ))}
             </div>
         );
     }
