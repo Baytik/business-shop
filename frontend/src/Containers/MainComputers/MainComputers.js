@@ -21,7 +21,7 @@ import 'animate.css';
 import {apiURL} from "../../apiURL";
 import {Categories} from '../../Categories';
 import {toast, ToastContainer} from "react-toastify";
-import Spinner from "../../Components/Spinner/Spinner";
+import Spinner from "../../Components/UI/Spinner/Spinner";
 
 class MainComputers extends Component {
 
@@ -29,6 +29,7 @@ class MainComputers extends Component {
         fromPrice:'',
         toPrice:'',
         sortComputers: null,
+        key:'',
     };
 
     findByCategory = () => {
@@ -102,6 +103,7 @@ class MainComputers extends Component {
             this.findByCategory();
         }
     }
+
 
     render() {
         return (

@@ -1,3 +1,7 @@
+.about_containers {
+    display: flex;
+    justify-content: center;
+}
 .computer_all_details {
     padding-top: 7%;
 }
@@ -78,6 +82,7 @@
 .back_and_sold {
     display: flex;
     justify-content: center;
+    height: 194px;
 }
 .back {
     width: 30%;
@@ -120,4 +125,31 @@
 .sold:hover {
     background: rgba(0,59,26,0.79);
     box-shadow:0 0 20px greenyellow;
+}
+.rebate {
+    display: flex;
+}
+.rebate p {
+    width: 200px;
+    color: white;
+    text-transform: capitalize;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 20px;
+}
+.rebate_price {
+    width: 60%;
+    margin-left: 20%;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.91);
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin-top: 15px;
+    outline: none;
+    border-radius: 0;
+    padding-left: 5px;
+    font-size: 15px;
+    color: white;
+}
+.rebate_price:focus {
+    border-bottom: 2px solid white;
 }

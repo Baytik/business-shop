@@ -1,0 +1,79 @@
+@media screen and (max-width: 1125px){
+    .copy {
+        font-size: 12px;
+        height: 35px;
+    }
+}
+@media screen and (max-width: 990px){
+    .for_float {
+        font-size: 17px;
+        width: 180px;
+    }
+    .pc_name_comment , .pc_price_comment , .key_for_comment {
+        text-align: center;
+        font-size: 15px;
+    }
+    .rebate p {
+        width: 100px;
+    }
+}
+@media screen and (max-width: 770px) {
+    .Modal {
+        width: 70%;
+        left: 15%;
+    }
+}
+@media screen and (max-width: 560px) {
+    .for_float {
+        font-size: 15px;
+        width: 160px;
+    }
+    .pc_name_comment , .pc_price_comment , .key_for_comment {
+        font-size: 14px;
+        width: 100px;
+        margin-left: 20px;
+    }
+    .rebate_price {
+        height: 20px;
+        font-size: 13px;
+    }
+    .rebate p {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .leave_reviews {
+        margin-top: 150px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .for_float {
+        display: none;
+    }
+    .pc_name_comment , .pc_price_comment , .key_for_comment {
+        width: 100%;
+        text-align: center;
+    }
+    .close_or_leave button {
+        font-size: 12px;
+        width: 40%;
+        margin-left: 8%;
+    }
+    .Modal {
+        width: 80%;
+        left: 10%;
+    }
+}
+@media screen and (max-width: 325px) {
+    .close_modal , .copy {
+        font-size: 10px;
+        margin-left: 7%;
+    }
+    .key_input , .reviews_input {
+        margin-left: 8%;
+    }
+    .rebate p {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+}

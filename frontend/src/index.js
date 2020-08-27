@@ -10,6 +10,7 @@ import {ConnectedRouter, connectRouter, routerMiddleware} from "connected-react-
 import 'react-toastify/dist/ReactToastify.css';
 import usersReducer from "./store/reducers/usersReducer";
 import {pcReducer} from './store/reducers/pcReducer';
+import ReviewsReducer from "./store/reducers/ReviewsReducer";
 
 const saveToLocalStorage = state => {
     try {
@@ -39,6 +40,9 @@ const rootReducer = combineReducers({
     router: connectRouter(history),
     user: usersReducer,
     pc: pcReducer,
+    detailsPc: pcReducer,
+    keyForComment: pcReducer,
+    reviewsError: ReviewsReducer,
 });
 
 const middleware = [

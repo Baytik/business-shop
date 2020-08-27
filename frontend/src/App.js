@@ -7,6 +7,7 @@ import AddComputers from "./Containers/AddComputers/AddComputers";
 import Details from "./Containers/Deatails/Details";
 import Header from './Components/Notification/Header/Header';
 import ErrorNotFound from "./Components/ErrorNotFound/ErrorNotFound";
+import Reviews from "./Containers/Reviews/Reviews";
 import './App.css';
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
                  || window.location.pathname === '/computersoffice'
                  || window.location.pathname === '/computersbudget-gaming'
                  || window.location.pathname === '/addComputer'
-                 || window.location.pathname === `/details/:id`) ? (
+                 || window.location.pathname === `/details/:id`
+                 || window.location.pathname === '/reviews' ) ? (
                     <Switch>
                         <Route path="/" exact component={Greeting}/>
                         <Route path="/login" component={Login}/>
@@ -29,6 +31,7 @@ class App extends Component {
                         <Route path="/computers:id" component={MainComputers}/>
                         <Route path="/addComputer" component={AddComputers}/>
                         <Route path="/details/:id" component={Details}/>
+                        <Route path="/reviews" component={Reviews}/>
                     </Switch>
                 ) : (
                     <ErrorNotFound/>

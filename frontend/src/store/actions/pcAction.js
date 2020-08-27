@@ -9,6 +9,10 @@ export const GET_PC_REQUEST = 'GET_PC_REQUEST';
 export const GET_PC_SUCCESS = 'GET_PC_SUCCESS';
 export const GET_PC_ERROR = 'GET_PC_ERROR';
 
+export const GET_PC_DETAILS_REQUEST = 'GET_PC_DETAILS_REQUEST';
+export const GET_PC_DETAILS_SUCCESS = 'GET_PC_DETAILS_SUCCESS';
+export const GET_PC_DETAILS_ERROR = 'GET_PC_DETAILS_ERROR';
+
 export const DELETE_PC_SUCCESS = 'DELETE_PC_SUCCESS';
 export const DELETE_PC_ERROR = 'DELETE_PC_ERROR';
 
@@ -25,11 +29,16 @@ export const getPcSuccess = (computers) => ({type: GET_PC_SUCCESS,computers});
 export const getPcError = (error) => ({type: GET_PC_ERROR,error});
 
 export const deletePcSuccess = () => ({type: DELETE_PC_SUCCESS});
-export const deletePcError = (error) => ({type: DELETE_PC_ERROR});
+export const deletePcError = (error) => ({type: DELETE_PC_ERROR,error});
 
-export const postIdRequest = () => ({type: POST_ID_REQUEST});
-export const postIdSuccess = () => ({type: POST_ID_SUCCESS});
-export const postIdError = () => ({type: POST_ID_ERROR});
+export const getPcDetailsRequest = (spinner) => ({type: GET_PC_DETAILS_REQUEST,spinner});
+export const getPcDetailsSuccess = (detailsPc) => ({type: GET_PC_DETAILS_SUCCESS,detailsPc});
+export const getPcDetailsError = (error) => ({type: GET_PC_DETAILS_ERROR,error});
+
+export const postIdRequest = (spinner) => ({type: POST_ID_REQUEST,spinner});
+export const postIdSuccess = (keyForComment) => ({type: POST_ID_SUCCESS,keyForComment});
+export const postIdError = (error) => ({type: POST_ID_ERROR,error});
+
 
 export const sendPc = (computer) => {
     return async (dispatch, getState) => {
@@ -38,7 +47,6 @@ export const sendPc = (computer) => {
             dispatch(postPcRequest());
             const send = await axiosAPI.post('/computers', computer, {headers: {'Authorization': token.token}});
             dispatch(postPcSuccess(send.data));
-            dispatch(push(`/details/${send.data._id}`));
         } catch(error) {
             dispatch(postPcError(error.response.data))
         }
@@ -60,11 +68,11 @@ export const fetchPc = (url) => {
 export const fetchPcForDetails = (id) => {
     return async dispatch => {
         try {
-            dispatch(getPcRequest());
+            dispatch(getPcDetailsRequest());
             const response = await axiosAPI.get(`/computers/${id}`);
-            dispatch(getPcSuccess(response.data));
+            dispatch(getPcDetailsSuccess(response.data));
         }catch (error) {
-            dispatch(getPcError(error));
+            dispatch(getPcDetailsError(error));
         }
     }
 };
@@ -81,15 +89,15 @@ export const deletePC = (id) => {
   }
 };
 
-export const postIdForSold = (id) => {
-  return async (dispatch, getState) => {
-      try {
-          dispatch(postIdRequest());
-          const token = getState().user.user;
-          const sendId = await axiosAPI.put(`/computers/review/${id}`,{headers: {'Authorization': token.token}});
-          dispatch(postIdSuccess(sendId))
-      } catch (error) {
-          dispatch(postIdError(error))
-      }
-  }
+export const postIdForSold = (id,rebate) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch(postIdRequest());
+            const token = getState().user.user;
+            const sendId = await axiosAPI.put(`/computers/review/${id}`, rebate, {headers: {'Authorization': token.token}});
+            dispatch(postIdSuccess(sendId.data));
+        } catch (error) {
+            dispatch(postIdError(error))
+        }
+    }
 };

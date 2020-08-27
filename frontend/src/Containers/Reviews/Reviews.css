@@ -1,0 +1,27 @@
+.ReviewsContainer {
+    background: url("../../Components/Images/bg_reviews.jpg") 100% 100% no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+}
+.leave_reviews {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 100px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.49);
+    border: 2px solid blue;
+    color: white;
+    font-size: 18px;
+    font-family: 'sans-serif',FreeMono;
+    text-align: center;
+    padding-bottom: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.5s;
+}
+.leave_reviews:hover {
+    border: 2px solid white;
+    background: rgba(0, 0, 0, 0.82);
+}

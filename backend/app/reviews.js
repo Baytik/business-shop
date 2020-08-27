@@ -17,10 +17,10 @@ router.post('/', async (req, res) => {
             await reviews.save();
             res.send(reviews)
         } else {
-            return res.send({error: 'Вы уже оставляли отзыв'})
+            return res.status(400).send({error: 'Вы уже оставляли отзыв'})
         }
     } catch (error) {
-        return res.status(400).send({error: 'Ключ от продукта не найден'})
+        return res.status(404).send({error: 'Ключ от продукта не найден'})
     }
 });
 

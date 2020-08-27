@@ -3,7 +3,7 @@ import Footer from "../../Components/Notification/Footer/Footer";
 import WOW from 'wow.js';
 import {sendPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
-import Spinner from "../../Components/Spinner/Spinner";
+import Spinner from "../../Components/UI/Spinner/Spinner";
 import {Categories} from "../../Categories";
 import {toast,ToastContainer} from "react-toastify";
 import 'animate.css';
@@ -66,7 +66,7 @@ class AddComputers extends Component {
         return (
             <div className="AddComputersContainer">
                 <ToastContainer/>
-                <h1 className="text_add">Добовляй что-бы заработать!</h1>
+                <h1 className="text_add">Добавляй что-бы заработать!</h1>
                 {this.props.spinner === true ? (
                     <Spinner/>
                 ) : (

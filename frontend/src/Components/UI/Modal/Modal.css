@@ -1,0 +1,118 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.91);
+    width: 50%;
+    box-shadow: 0 0 10px #fff;
+    padding: 16px;
+    left: 25%;
+    top: 25%;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+.div_for_flex {
+    display: flex;
+}
+.for_float {
+    width: 200px;
+    color: white;
+    text-transform: capitalize;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 20px;
+}
+.pc_name_comment,.pc_price_comment{
+    color: white;
+    font-family: 'sans-serif',FreeMono;
+    text-transform: capitalize;
+    font-size: 18px;
+    margin-top: 22px;
+}
+.key_for_comment {
+    background: transparent;
+    color: white;
+    border: 0;
+    outline: none;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 18px;
+}
+.copy {
+    height: 30px;
+    background: transparent;
+    border:2px solid white;
+    outline: none;
+    width: 40%;
+    color: white;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-top: 17px;
+    margin-left: 20%;
+}
+.copy:hover , .close_modal:hover{
+    background: white;
+    border: 0;
+    color: black;
+}
+.close_modal {
+    height: 35px;
+    background: transparent;
+    border:2px solid white;
+    outline: none;
+    width: 40%;
+    color: white;
+    font-family: 'sans-serif',FreeMono;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-top: 17px;
+}
+.modal_btns {
+    display: flex;
+}
+
+.key_input {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    height: 25px;
+    outline: none;
+    border: 1px solid white;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 10px;
+    background: rgba(0, 0, 0, 0.91);
+    border-radius: 0;
+    color: white;
+}
+.reviews_input {
+    width: 80%;
+    margin-left: 10%;
+    height: 150px;
+    margin-top: 20px;
+    outline: none;
+    padding-top: 10px;
+    background: rgba(0, 0, 0, 0.91);
+    border: 1px solid white;
+    padding-left: 10px;
+    border-radius: 0;
+    color: white;
+}
+.close_or_leave button{
+    width: 35%;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 11%;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.close_or_leave button:hover {
+    background: white;
+    color: black;
+}

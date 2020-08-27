@@ -25,7 +25,8 @@ class Header extends Component {
             || window.location.pathname === '/computersbudget-gaming'
             || window.location.pathname === '/addComputer'
             || window.location.pathname === `/details/:id`
-            || window.location.pathname === '/detailInfoComputers'){
+            || window.location.pathname === '/detailInfoComputers'
+            || window.location.pathname === '/reviews'){
 
             head.style.display = "block";
         }else{
@@ -60,7 +61,7 @@ class Header extends Component {
                             <NavLink to="/computers">Служба поддержки</NavLink>
                         </li>
                         <li className="link-4">
-                            <NavLink to="/computers">Отзывы</NavLink>
+                            <NavLink to="/reviews">Отзывы</NavLink>
                         </li>
                         {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
                             <li className="link-5">
