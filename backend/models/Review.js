@@ -13,6 +13,10 @@ const ReviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    rebate: {
+      type: String,
+      required: true
+    },
     review: String
 });
 

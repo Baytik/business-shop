@@ -90,6 +90,7 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
             price: products.price,
             key: nanoid(7),
             review: 'No Comment',
+            rebate: req.body.rebate
         });
         await review.save();
         await Product.deleteOne({_id: req.params.id});
