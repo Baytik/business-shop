@@ -97,7 +97,7 @@ class Header extends Component {
                                 <NavLink to="/computers">Служба поддержки</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/computers">Отзывы</NavLink>
+                                <NavLink to="/reviews">Отзывы</NavLink>
                             </li>
                             {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
                                 <li>

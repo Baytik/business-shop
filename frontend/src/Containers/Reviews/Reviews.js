@@ -1,17 +1,35 @@
 import React, {Component} from 'react';
 import Modal from "../../Components/UI/Modal/Modal";
-import {postReviews} from "../../store/actions/ReviewsActions";
+import {postReviews,fetchReviews} from "../../store/actions/ReviewsActions";
 import {connect} from "react-redux";
 import {toast,ToastContainer} from "react-toastify";
 import './Reviews.css';
+import './MediReviews.css';
 
 class Reviews extends Component {
 
     state = {
         key: '',
-        reviews:'',
+        review:'',
         modal:false,
+        reviews: [],
+        sliceFrom:0,
+        sliceTo:'',
+        disable:false,
     };
+
+    async componentDidMount() {
+        await this.props.fetchReviews();
+
+        const review = this.props.reviews;
+                const filterForReviews = review.filter(reviews => reviews.review !== 'No Comment');
+                    await this.setState({reviews: filterForReviews});
+        if (this.state.reviews.length >= 16){
+            this.setState({sliceTo: this.props.reviews.length / 4,disable: false});
+        }else{
+            this.setState({sliceTo: this.state.reviews.length,disable:true});
+        }
+    }
 
     inputValHandler = (e) => {
       this.setState({[e.target.name]: e.target.value});
@@ -26,9 +44,21 @@ class Reviews extends Component {
     };
 
     sendReviews = async () => {
-        await this.props.postReviews({key: this.state.key, review: this.state.reviews});
-        if(this.props.reviewsError){
-            toast.error(`${this.props.reviewsError.error}`);
+        await this.props.postReviews({key: this.state.key, review: this.state.review});
+        if(this.props.postReviewsError){
+            toast.error(`${this.props.postReviewsError.error}`);
+        }else{
+            toast.success('Ваш отзыв оставлен!');
+        }
+    };
+
+    loadMoreHandler =  () => {
+        const slice = this.state.sliceTo + 1;
+        this.setState({sliceTo: slice});
+
+        if(this.state.sliceTo >= this.state.reviews.length){
+             toast.error('Больше отзывав не найдено!');
+             this.setState({sliceTo: this.state.reviews.length,disable: true})
         }
     };
 
@@ -40,7 +70,7 @@ class Reviews extends Component {
                 <Modal show={this.state.modal} close={this.state.modal}>
                     <div className="inputs_for_reviews">
                         <input className="key_input" type="text" placeholder="ваш ключ....." name="key" onChange={this.inputValHandler}/>
-                        <textarea className="reviews_input" name="reviews" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
+                        <textarea className="reviews_input" name="review" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
                     </div>
                     <div className="close_or_leave">
                         <button className="close_modal_in_reviews" onClick={this.closeModal}>закрыть</button>
@@ -48,7 +78,14 @@ class Reviews extends Component {
                     </div>
                 </Modal>
                 <div className="reviews">
-
+                    {this.state.reviews && Object.keys(this.state.reviews).slice(this.state.sliceFrom,this.state.sliceTo).map(reviews => (
+                        <div className="review_block" key={reviews}>
+                            <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
+                            <p className="review_text">{this.state.reviews[reviews].review}</p>
+                            <p className="review_price">Купил за - {this.state.reviews[reviews].price} сом</p>
+                        </div>
+                    ))}
+                    <button disabled={this.state.disable} className="load_more" onClick={this.loadMoreHandler}>загрузить еще</button>
                 </div>
             </div>
         );
@@ -56,11 +93,13 @@ class Reviews extends Component {
 }
 
 const mapStateToProps = state => ({
-    reviewsError: state.reviewsError.reviewsError,
+    postReviewsError: state.postReviewsError.postReviewsError,
+    reviews: state.reviews.reviews,
 });
 
 const mapDispatchToProps = dispatch => ({
-   postReviews: (reviews) => dispatch(postReviews(reviews)),
+    postReviews: (reviews) => dispatch(postReviews(reviews)),
+    fetchReviews: () => dispatch(fetchReviews()),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps) (Reviews);

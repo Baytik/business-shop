@@ -1,0 +1,11 @@
+@media screen and (max-width: 320px) {
+    .review_pc_name {
+        font-size: 14px;
+    }
+    .review_text {
+        font-size: 13px;
+    }
+    .review_price {
+        font-size: 15px;
+    }
+}

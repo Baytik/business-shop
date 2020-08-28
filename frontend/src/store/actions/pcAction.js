@@ -47,6 +47,7 @@ export const sendPc = (computer) => {
             dispatch(postPcRequest());
             const send = await axiosAPI.post('/computers', computer, {headers: {'Authorization': token.token}});
             dispatch(postPcSuccess(send.data));
+            dispatch(push(`/details/${send.data._id}`))
         } catch(error) {
             dispatch(postPcError(error.response.data))
         }

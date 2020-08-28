@@ -2,8 +2,9 @@
     background: url("../../Components/Images/bg_reviews.jpg") 100% 100% no-repeat;
     background-attachment: fixed;
     width: 100%;
-    height: 700px;
+    height: 100%;
     background-size: cover;
+    padding-bottom: 20px;
 }
 .leave_reviews {
     width: 80%;
@@ -24,4 +25,52 @@
 .leave_reviews:hover {
     border: 2px solid white;
     background: rgba(0, 0, 0, 0.82);
+}
+.review_block {
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    padding-right: 10px;
+    background: rgba(0, 0, 0, 0.82);
+}
+.review_text {
+    font-family:'monospace',FreeMono;
+    color: white;
+    margin-left: 20px;
+}
+.review_pc_name {
+    font-family: 'monospace';
+    background: -webkit-linear-gradient(#3f55c8, #009a91, #00b365);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+    margin-top: 0;
+}
+.review_price {
+    font-family: 'monospace',SansSerif;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.load_more {
+    width: 80%;
+    margin-left: 10%;
+    background: rgba(0, 0, 0, 0.51);
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    font-family: 'monospace';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+.load_more:hover {
+    box-shadow: 0 0 10px white;
+    background: rgba(0, 0, 0, 0.29);
 }
