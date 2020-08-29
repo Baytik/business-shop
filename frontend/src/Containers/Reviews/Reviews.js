@@ -13,7 +13,6 @@ class Reviews extends Component {
         review:'',
         modal:false,
         reviews: [],
-        sliceFrom:0,
         sliceTo:'',
         disable:false,
     };
@@ -68,17 +67,17 @@ class Reviews extends Component {
                 <ToastContainer/>
                 <button className="leave_reviews" onClick={this.showModal}>оставить отзыв</button>
                 <Modal show={this.state.modal} close={this.state.modal}>
-                    <div className="inputs_for_reviews">
-                        <input className="key_input" type="text" placeholder="ваш ключ....." name="key" onChange={this.inputValHandler}/>
-                        <textarea className="reviews_input" name="review" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
-                    </div>
-                    <div className="close_or_leave">
-                        <button className="close_modal_in_reviews" onClick={this.closeModal}>закрыть</button>
-                        <button className="send_reviews" onClick={this.sendReviews}>оставить</button>
-                    </div>
+                        <div className="inputs_for_reviews">
+                            <input className="key_input" type="text" placeholder="ваш ключ....." name="key" onChange={this.inputValHandler}/>
+                            <textarea className="reviews_input" name="review" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
+                        </div>
+                        <div className="close_or_leave">
+                            <button className="close_modal_in_reviews" onClick={this.closeModal}>закрыть</button>
+                            <button className="send_reviews" onClick={this.sendReviews}>оставить</button>
+                        </div>
                 </Modal>
                 <div className="reviews">
-                    {this.state.reviews && Object.keys(this.state.reviews).slice(this.state.sliceFrom,this.state.sliceTo).map(reviews => (
+                    {this.state.reviews && Object.keys(this.state.reviews).slice(0,this.state.sliceTo).map(reviews => (
                         <div className="review_block" key={reviews}>
                             <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
                             <p className="review_text">{this.state.reviews[reviews].review}</p>

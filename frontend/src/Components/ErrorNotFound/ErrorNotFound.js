@@ -19,7 +19,7 @@ class ErrorNotFound extends Component {
                             <p className="title_links">Ссылки:</p>
                             <a href="/">На главную</a>
                             <a href="/computers">К компьютерам</a>
-                            <a href="/computers">К отзывам</a>
+                            <a href="/reviews">К отзывам</a>
                             <a href="/computers">Обратится в службу поддержки</a>
                         </div>
                     </div>
