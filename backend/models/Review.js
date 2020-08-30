@@ -14,7 +14,7 @@ const ReviewSchema = new mongoose.Schema({
         required: true
     },
     rebate: {
-      type: String,
+      type: Number,
       required: true
     },
     review: String

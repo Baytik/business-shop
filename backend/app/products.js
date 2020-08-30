@@ -90,13 +90,13 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
             price: products.price,
             key: nanoid(7),
             review: 'No Comment',
-            rebate: req.body.rebate
+            rebate: req.body.rebate === '' ? products.price : req.body.rebate
         });
         await review.save();
         await Product.deleteOne({_id: req.params.id});
         res.send(review)
     } catch (e) {
-        return res.status(404).send({error: 'Computer not found'})
+        return res.status(404).send({error: 'Компьютер не найден'})
     }
 });
 
