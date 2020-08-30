@@ -62,6 +62,7 @@ class Reviews extends Component {
     };
 
     render() {
+        console.log(this.props.reviews)
         return (
             <div className="ReviewsContainer">
                 <ToastContainer/>
@@ -81,7 +82,7 @@ class Reviews extends Component {
                         <div className="review_block" key={reviews}>
                             <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
                             <p className="review_text">{this.state.reviews[reviews].review}</p>
-                            <p className="review_price">Купил за - {this.state.reviews[reviews].price} сом</p>
+                            <p className="review_price">Купил за - {this.state.reviews[reviews].rebate} сом</p>
                         </div>
                     ))}
                     <button disabled={this.state.disable} className="load_more" onClick={this.loadMoreHandler}>загрузить еще</button>

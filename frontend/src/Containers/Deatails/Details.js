@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {fetchPcForDetails,postIdForSold} from "../../store/actions/pcAction";
+import {fetchPcForDetails, postIdForSold} from "../../store/actions/pcAction";
 import {logoutUser} from "../../store/actions/usersAction";
 import {connect} from 'react-redux';
 import cpu from '../../Components/Images/cpu.png'
@@ -19,14 +19,14 @@ import warranty from '../../Components/Images/sale_warranty.png';
 import price from '../../Components/Images/price.png';
 import {apiURL} from "../../apiURL";
 import Modal from '../../Components/UI/Modal/Modal';
-import {toast,ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import './Details.css'
 
 class Details extends Component {
 
     state = {
         modal: false,
-        rebate:'',
+        rebate: '',
     };
 
     componentDidMount() {
@@ -36,19 +36,19 @@ class Details extends Component {
         const hours = date.getHours();
         const bg = document.getElementById('container');
 
-        if(hours >= 4 && hours <= 13){
+        if (hours >= 4 && hours <= 13) {
             bg.style.background = `url('${dawn}')100% 100% no-repeat`;
             bg.style.backgroundSize = "cover";
             bg.style.backgroundAttachment = "fixed";
             bg.style.height = "100%";
             bg.style.width = "100%";
-        }else if(hours >= 14 && hours <= 19){
+        } else if (hours >= 14 && hours <= 19) {
             bg.style.background = `url('${noon}')100% 100% no-repeat`;
             bg.style.backgroundSize = "cover";
             bg.style.backgroundAttachment = "fixed";
             bg.style.height = "100%";
             bg.style.width = "100%";
-        }else {
+        } else {
             bg.style.background = `url('${night}')100% 100% no-repeat`;
             bg.style.backgroundSize = "cover";
             bg.style.backgroundAttachment = "fixed";
@@ -62,17 +62,17 @@ class Details extends Component {
     };
 
     sendId = (id) => {
-        this.props.postIdForSold(id,{rebate: this.state.rebate});
-        if(this.props.keyForCommentError){
+        this.props.postIdForSold(id, {rebate: this.state.rebate});
+        if (this.props.keyForCommentError) {
             toast.error(`${this.props.keyForCommentError}`)
         }
-        if(! this.props.keyForCommentError) {
+        if (!this.props.keyForCommentError) {
             this.setState({modal: true})
         }
     };
 
     closeModal = () => {
-      this.setState({modal: false});
+        this.setState({modal: false});
     };
 
     copyKeyHandler = () => {
@@ -95,14 +95,17 @@ class Details extends Component {
                         </div>
                         <div className="div_for_flex">
                             <p className="for_float">Ключ продукта:</p>
-                            <input type="text" className="key_for_comment" id="key" readOnly="on" value={`${this.props.keyForComment.key}`}/>
+                            <input type="text" className="key_for_comment" id="key" readOnly="on"
+                                   value={`${this.props.keyForComment.key}`}/>
                         </div>
                         <div className="div_for_flex">
                             <p className="for_float">Реальная цена:</p>
                             <p className="pc_price_comment">{this.props.detailsPc.price}сом</p>
                         </div>
                         <div className="modal_btns">
-                            <button className="close_modal" onClick={() => this.props.history.push('/computers') && this.closeModal()}>закрыть</button>
+                            <button className="close_modal"
+                                    onClick={() => this.props.history.push('/computers') && this.closeModal()}>закрыть
+                            </button>
                             <button className="copy" onClick={this.copyKeyHandler}>копировать ключ</button>
                         </div>
                     </Modal>
@@ -169,7 +172,8 @@ class Details extends Component {
                             </div>
                             <div className="details_info_2">
                                 <div className="pc_image">
-                                    <img src={apiURL + '/uploads/' + this.props.detailsPc.image} alt={this.props.detailsPc.image}/>
+                                    <img src={apiURL + '/uploads/' + this.props.detailsPc.image}
+                                         alt={this.props.detailsPc.image}/>
                                 </div>
                             </div>
                             <div className="details_info_3">
@@ -224,12 +228,15 @@ class Details extends Component {
                             </div>
                         </div>
                         <div className="rebate">
-                            <input type="number" name="rebate" onChange={this.inputValHandler} className="rebate_price" placeholder="Скида.........."/>
+                            <input type="number" name="rebate" onChange={this.inputValHandler} className="rebate_price"
+                                   placeholder="Скидка.........."/>
                         </div>
                         <div className="back_and_sold">
-                            <button className="back" onClick={() => this.props.history.push('/computers')}>назад</button>
+                            <button className="back" onClick={() => this.props.history.push('/computers')}>назад
+                            </button>
                             {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
-                                <button className="sold" onClick={() => this.sendId(this.props.detailsPc._id)}>продано</button>
+                                <button className="sold"
+                                        onClick={() => this.sendId(this.props.detailsPc._id)}>продано</button>
                             ) : (
                                 <></>
                             )}
@@ -251,7 +258,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchPcForDetails: (id) => dispatch(fetchPcForDetails(id)),
     logoutUser: (user) => dispatch(logoutUser(user)),
-    postIdForSold: (id,rebate) => dispatch(postIdForSold(id,rebate))
+    postIdForSold: (id, rebate) => dispatch(postIdForSold(id, rebate))
 });
 
-export default connect(mapStateToProps,mapDispatchToProps) (Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);
