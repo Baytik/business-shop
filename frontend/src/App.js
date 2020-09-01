@@ -8,22 +8,52 @@ import Details from "./Containers/Deatails/Details";
 import Header from './Components/Notification/Header/Header';
 import ErrorNotFound from "./Components/ErrorNotFound/ErrorNotFound";
 import Reviews from "./Containers/Reviews/Reviews";
+import NotFeedbackReviews from "./Containers/NotFeedbackReviews/NotFeedbackReviews";
 import './App.css';
+import Footer from "./Components/Notification/Footer/Footer";
+import {fetchId} from "./store/actions/pcAction";
+import {connect} from 'react-redux';
 
 class App extends Component {
+
+    state = {
+        details:''
+    };
+
+    componentDidMount() {
+        this.props.fetchId();
+        setTimeout(this.findId,50)
+    }
+
+    findId = () => {
+        const idForDetails = [];
+
+        Object.keys(this.props.computerId).forEach(id => {
+            const ids = `/details/${this.props.computerId[id]._id}`;
+            idForDetails.push(ids)
+        });
+
+        for (let i = 0; i < idForDetails.length; i++) {
+            if(window.location.pathname === idForDetails[i]) {
+                this.setState({details: idForDetails[i]})
+            }
+        }
+    };
+
     render() {
         return (
             <div className="App">
                 <Header/>
                 {(window.location.pathname === '/'
-                 || window.location.pathname === '/login'
-                 || window.location.pathname === '/computers'
-                 || window.location.pathname === '/computersgaming'
-                 || window.location.pathname === '/computersoffice'
-                 || window.location.pathname === '/computersbudget-gaming'
-                 || window.location.pathname === '/addComputer'
-                 || window.location.pathname === `/details/:id`
-                 || window.location.pathname === '/reviews' ) ? (
+                    || window.location.pathname === '/login'
+                    || window.location.pathname === '/computers'
+                    || window.location.pathname === '/computersgaming'
+                    || window.location.pathname === '/computersoffice'
+                    || window.location.pathname === '/computersbudget-gaming'
+                    || window.location.pathname === '/addComputer'
+                    || window.location.pathname === this.state.details
+                    || window.location.pathname === '/reviews'
+                    || window.location.pathname === '/notFeedbackReviews') ? (
                     <Switch>
                         <Route path="/" exact component={Greeting}/>
                         <Route path="/login" component={Login}/>
@@ -32,13 +62,25 @@ class App extends Component {
                         <Route path="/addComputer" component={AddComputers}/>
                         <Route path="/details/:id" component={Details}/>
                         <Route path="/reviews" component={Reviews}/>
+                        <Route path="/notFeedbackReviews" component={NotFeedbackReviews}/>
                     </Switch>
                 ) : (
-                    <ErrorNotFound/>
+                    <>
+                        <ErrorNotFound/>
+                    </>
                 )}
+                <Footer/>
             </div>
-    )
-  }
+        )
+    }
 }
 
-export default App;
+const mapStateToProps = state => ({
+   computerId: state.computerId.computerId,
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchId: () => dispatch(fetchId()),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

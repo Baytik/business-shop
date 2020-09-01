@@ -20,6 +20,10 @@ export const POST_ID_REQUEST = 'POST_ID_REQUEST';
 export const POST_ID_SUCCESS = 'POST_ID_SUCCESS';
 export const POST_ID_ERROR = 'POST_ID_ERROR';
 
+export const GET_ID_REQUEST = 'GET_ID_REQUEST';
+export const GET_ID_SUCCESS = 'GET_ID_SUCCESS';
+export const GET_ID_ERROR = 'GET_ID_ERROR';
+
 export const postPcRequest = (spinner) => ({type: POST_PC_REQUEST, spinner});
 export const postPcSuccess = (computer) => ({type: POST_PC_SUCCESS,computer});
 export const postPcError = (error) => ({type: POST_PC_ERROR,error});
@@ -39,6 +43,9 @@ export const postIdRequest = (spinner) => ({type: POST_ID_REQUEST,spinner});
 export const postIdSuccess = (keyForComment) => ({type: POST_ID_SUCCESS,keyForComment});
 export const postIdError = (error) => ({type: POST_ID_ERROR,error});
 
+export const getIdRequest = (spinner) => ({type: GET_ID_REQUEST, spinner});
+export const getIdSuccess = (computerId) => ({type: GET_ID_SUCCESS,computerId});
+export const getIdError = (error) => ({type: GET_ID_ERROR,error});
 
 export const sendPc = (computer) => {
     return async (dispatch, getState) => {
@@ -47,7 +54,7 @@ export const sendPc = (computer) => {
             dispatch(postPcRequest());
             const send = await axiosAPI.post('/computers', computer, {headers: {'Authorization': token.token}});
             dispatch(postPcSuccess(send.data));
-            dispatch(push(`/details/${send.data._id}`))
+            dispatch(push(`/details/${send.data._id}`));
         } catch(error) {
             dispatch(postPcError(error.response.data))
         }
@@ -62,6 +69,18 @@ export const fetchPc = (url) => {
             dispatch(getPcSuccess(response.data));
         }catch (error) {
             dispatch(getPcError(error));
+        }
+    }
+};
+
+export const fetchId = () => {
+    return async dispatch => {
+        try {
+            dispatch(getIdRequest());
+            const id = await axiosAPI.get('/computers');
+            dispatch(getIdSuccess(id.data));
+        }catch (error) {
+            dispatch(getIdError(error.response.data))
         }
     }
 };

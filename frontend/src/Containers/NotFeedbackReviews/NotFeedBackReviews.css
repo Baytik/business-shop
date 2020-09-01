@@ -1,0 +1,29 @@
+.NotFeedbackContainer {
+    background: url('../../Components/Images/bg_for_reviewsKeys.jpg')100% 100% no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+}
+.reviewsKeysTables {
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+.NotFeedbackContainer table {
+    width: 80%;
+    margin-left: 10%;
+    border: 3px solid rgba(55, 55, 55, 0.62);
+}
+.NotFeedbackContainer td{
+    border: 1px solid grey;
+    height: 30px;
+    padding-left: 5px;
+    color: white;
+    font-family: 'monospace';
+}
+.title_reviewsKeys {
+    text-align: center;
+    color: white;
+    font-family: 'monospace';
+    font-size: 22px;
+}

@@ -6,6 +6,16 @@ import {toast,ToastContainer} from "react-toastify";
 import './Reviews.css';
 import './MediReviews.css';
 
+const mapStateToProps = state => ({
+    postReviewsError: state.postReviewsError.postReviewsError,
+    reviews: state.reviews.reviews,
+});
+
+const mapDispatchToProps = dispatch => ({
+    postReviews: (reviews) => dispatch(postReviews(reviews)),
+    fetchReviews: () => dispatch(fetchReviews()),
+});
+
 class Reviews extends Component {
 
     state = {
@@ -21,8 +31,8 @@ class Reviews extends Component {
         await this.props.fetchReviews();
 
         const review = this.props.reviews;
-                const filterForReviews = review.filter(reviews => reviews.review !== 'No Comment');
-                    await this.setState({reviews: filterForReviews});
+        const filterForReviews = review.filter(reviews => reviews.review !== 'No Comment');
+        await this.setState({reviews: filterForReviews});
         if (this.state.reviews.length >= 16){
             this.setState({sliceTo: this.props.reviews.length / 4,disable: false});
         }else{
@@ -31,7 +41,7 @@ class Reviews extends Component {
     }
 
     inputValHandler = (e) => {
-      this.setState({[e.target.name]: e.target.value});
+        this.setState({[e.target.name]: e.target.value});
     };
 
     showModal = () => {
@@ -39,7 +49,7 @@ class Reviews extends Component {
     };
 
     closeModal = () => {
-      this.setState({modal:false})
+        this.setState({modal:false})
     };
 
     sendReviews = async () => {
@@ -48,6 +58,8 @@ class Reviews extends Component {
             toast.error(`${this.props.postReviewsError.error}`);
         }else{
             toast.success('Ваш отзыв оставлен!');
+            this.setState({modal: false});
+            this.componentDidMount();
         }
     };
 
@@ -56,33 +68,32 @@ class Reviews extends Component {
         this.setState({sliceTo: slice});
 
         if(this.state.sliceTo >= this.state.reviews.length){
-             toast.error('Больше отзывав не найдено!');
-             this.setState({sliceTo: this.state.reviews.length,disable: true})
+            toast.error('Больше отзывав не найдено!');
+            this.setState({sliceTo: this.state.reviews.length,disable: true})
         }
     };
 
     render() {
-        console.log(this.props.reviews)
         return (
             <div className="ReviewsContainer">
                 <ToastContainer/>
                 <button className="leave_reviews" onClick={this.showModal}>оставить отзыв</button>
                 <Modal show={this.state.modal} close={this.state.modal}>
-                        <div className="inputs_for_reviews">
-                            <input className="key_input" type="text" placeholder="ваш ключ....." name="key" onChange={this.inputValHandler}/>
-                            <textarea className="reviews_input" name="review" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
-                        </div>
-                        <div className="close_or_leave">
-                            <button className="close_modal_in_reviews" onClick={this.closeModal}>закрыть</button>
-                            <button className="send_reviews" onClick={this.sendReviews}>оставить</button>
-                        </div>
+                    <div className="inputs_for_reviews">
+                        <input className="key_input" type="text" placeholder="ваш ключ....." name="key" onChange={this.inputValHandler}/>
+                        <textarea className="reviews_input" name="review" onChange={this.inputValHandler} placeholder="Ваш отзыв..."/>
+                    </div>
+                    <div className="close_or_leave">
+                        <button className="close_modal_in_reviews" onClick={this.closeModal}>закрыть</button>
+                        <button className="send_reviews" onClick={this.sendReviews}>оставить</button>
+                    </div>
                 </Modal>
                 <div className="reviews">
                     {this.state.reviews && Object.keys(this.state.reviews).slice(0,this.state.sliceTo).map(reviews => (
                         <div className="review_block" key={reviews}>
                             <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
                             <p className="review_text">{this.state.reviews[reviews].review}</p>
-                            <p className="review_price">Купил за - {this.state.reviews[reviews].rebate} сом</p>
+                            <p className="review_price">Купил за - {this.state.reviews[reviews].price} сом</p>
                         </div>
                     ))}
                     <button disabled={this.state.disable} className="load_more" onClick={this.loadMoreHandler}>загрузить еще</button>
@@ -91,15 +102,5 @@ class Reviews extends Component {
         );
     }
 }
-
-const mapStateToProps = state => ({
-    postReviewsError: state.postReviewsError.postReviewsError,
-    reviews: state.reviews.reviews,
-});
-
-const mapDispatchToProps = dispatch => ({
-    postReviews: (reviews) => dispatch(postReviews(reviews)),
-    fetchReviews: () => dispatch(fetchReviews()),
-});
 
 export default connect(mapStateToProps,mapDispatchToProps) (Reviews);

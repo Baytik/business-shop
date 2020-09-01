@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Footer from "../../Components/Notification/Footer/Footer";
 import WOW from 'wow.js';
 import {sendPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
@@ -116,7 +115,6 @@ class AddComputers extends Component {
                         </div>
                     </div>
                 )}
-                <Footer/>
             </div>
         );
     }

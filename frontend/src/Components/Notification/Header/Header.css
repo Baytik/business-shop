@@ -61,6 +61,13 @@
     width: 0%;
     transition: width .3s ease-in-out;
 }
+.main-ul a:before , .main-ul p:before{
+    background-color: #fff;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    transition: width .3s ease-in-out;}
 .main-ul a:hover:after, a:focus:after, p:hover:after, p:focus:after {
     width: 100%;
 }
@@ -143,9 +150,9 @@
     color: white;
     font-family:'sans-serif', 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
 }
-.user_block button {
+.logout_btn {
     width: 150px;
-    margin-left: 20px;
+    margin-left: 10px;
     height: 30px;
     outline: none;
     text-align: center;
@@ -154,9 +161,10 @@
     font-family:'sans-serif', 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
     border: 2px solid white;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 10px;
+    transition: all 0.5s;
 }
-.user_block button:hover {
+.logout_btn:hover {
     transition: all 0.5s;
     border: 2px solid red;
     box-shadow: 1px 1px 20px 0px red;
@@ -167,4 +175,20 @@
     height: 20px;
     padding-bottom: 10px;
     cursor: pointer;
+}
+.not_feedback_reviews {
+    width: 120px;
+    margin-left: 0;
+    height: 20px;
+    margin-right: 50px;
+    outline: none;
+    text-align: center;
+    color: white;
+    background: transparent;
+    font-family:'sans-serif', 'sans-serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', FreeMono;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.not_feedback_reviews:hover {
+    text-shadow: 0 0 25px white;
 }

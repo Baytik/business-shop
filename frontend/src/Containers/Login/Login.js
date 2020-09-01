@@ -42,12 +42,12 @@ class Login extends Component {
                 <form onSubmit={this.loginUserHandler}>
                     <div className="inputs">
                         <p>Логин</p>
-                        <input type="text" placeholder="Enter your email" name="username"
+                        <input type="text" placeholder="Введите вашу роль" name="username"
                                onChange={this.changeInputHandler}/>
                     </div>
                     <div className="inputs">
                         <p>Пароль</p>
-                        <input type="password" placeholder="Enter your password" name="password"
+                        <input type="password" placeholder="Введите ваш пароль" name="password"
                                onChange={this.changeInputHandler}/>
                     </div>
                     <div className="button">

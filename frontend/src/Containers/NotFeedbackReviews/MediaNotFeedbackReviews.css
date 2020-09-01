@@ -1,0 +1,41 @@
+@media screen and (max-width: 768px){
+    .NotFeedbackContainer td {
+        font-size: 13.5px;
+    }
+}
+
+@media screen and (max-width: 660px){
+    .NotFeedbackContainer table {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .NotFeedbackContainer td {
+        font-size: 13px;
+    }
+    .reviewsKeysTables {
+        padding-top: 140px;
+    }
+    .title_reviewsKeys {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .NotFeedbackContainer table {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+    .NotFeedbackContainer td {
+        font-size: 12px;
+    }
+    .reviewsKeysTables {
+        padding-top: 100px;
+    }
+    .title_reviewsKeys {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .NotFeedbackContainer td {
+        font-size: 10px;
+    }
+}

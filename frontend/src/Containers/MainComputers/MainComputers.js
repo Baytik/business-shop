@@ -11,7 +11,6 @@ import officeBg from '../../Components/Images/office_bg.jpg';
 import budgetGamingBg from '../../Components/Images/budget-gaming_bg.jpg';
 import gamingBg from '../../Components/Images/gaming_bg.jpeg';
 import allCategoryBg from '../../Components/Images/allCategory_bg.jpg';
-import Footer from "../../Components/Notification/Footer/Footer";
 import {deletePC, fetchPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
 import WOW from 'wow.js';
@@ -71,6 +70,8 @@ class MainComputers extends Component {
         this.findByCategory();
 
         const bg = document.getElementById('MainContainer');
+        const footer = document.getElementById('footer');
+        footer.style.display = "block";
 
         if(this.props.match.params.id === 'office'){
             bg.style.background = `url(${officeBg})100% 50% no-repeat`;
@@ -332,7 +333,6 @@ class MainComputers extends Component {
                         </div>
                     )}
                 </div>
-                <Footer/>
             </div>
         );
     }

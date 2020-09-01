@@ -42,8 +42,10 @@ const rootReducer = combineReducers({
     pc: pcReducer,
     detailsPc: pcReducer,
     keyForComment: pcReducer,
+    computerId: pcReducer,
     postReviewsError: ReviewsReducer,
     reviews: ReviewsReducer,
+    reviewsKeys: ReviewsReducer,
 });
 
 const middleware = [

@@ -26,7 +26,8 @@ class Header extends Component {
             || window.location.pathname === '/addComputer'
             || window.location.pathname === `/details/:id`
             || window.location.pathname === '/detailInfoComputers'
-            || window.location.pathname === '/reviews'){
+            || window.location.pathname === '/reviews'
+            || window.location.pathname === '/notFeedbackReviews'){
 
             head.style.display = "block";
         }else{
@@ -79,7 +80,12 @@ class Header extends Component {
                                     <div>
                                         <img onClick={this.closeLogoutUser} src={close} alt=""/>
                                         <p>Привет {this.props.user.displayName}!</p>
-                                        <button onClick={() => this.props.logoutUser(this.props.user)}>Выйти</button>
+                                        {this.props.user.role === 'admin' ? (
+                                            <NavLink to="/notFeedbackReviews" className="not_feedback_reviews">без отзывов</NavLink>
+                                        ) : (
+                                            <></>
+                                        )}
+                                        <button onClick={() => this.props.logoutUser(this.props.user)} className="logout_btn">Выйти</button>
                                     </div>
                                 </div>
                             </>

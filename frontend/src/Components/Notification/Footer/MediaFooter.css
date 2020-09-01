@@ -1,0 +1,10 @@
+@media screen and (max-width: 340px) {
+    footer p {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 325px) {
+    footer p {
+        font-size: 12px;
+    }
+}
