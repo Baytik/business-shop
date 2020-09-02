@@ -12,7 +12,7 @@ class NotFeedbackReviews extends Component {
         emptyText: false,
     };
 
-    async componentDidMount() {
+     componentDidMount() {
         this.props.fetchReviewsKeys();
         const interval = setTimeout(this.keysHandler,100);
 
@@ -53,8 +53,8 @@ class NotFeedbackReviews extends Component {
                             {this.state.reviewsKeys && Object.keys(this.state.reviewsKeys).map(keys => (
                                 <tbody key={keys}>
                                     <tr>
-                                        <td>Имя: {this.state.reviewsKeys[keys].pcName}</td>
-                                        <td>ID: {this.state.reviewsKeys[keys]._id}</td>
+                                        <td>Название: {this.state.reviewsKeys[keys].pcName}</td>
+                                        <td>Цена: {this.state.reviewsKeys[keys].price}</td>
                                         <td>Ключ: {this.state.reviewsKeys[keys].key}</td>
                                     </tr>
                                 </tbody>

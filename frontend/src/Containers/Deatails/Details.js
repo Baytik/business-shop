@@ -66,7 +66,7 @@ class Details extends Component {
     };
 
     sendId = (id) => {
-        this.props.postIdForSold(id,{rebate: this.state.rebate === '' ? this.props.keyForComment.price : this.state.rebate});
+        this.props.postIdForSold(id,{rebate: this.state.rebate});
         if(this.props.keyForCommentError){
             toast.error(`${this.props.keyForCommentError}`)
         }
