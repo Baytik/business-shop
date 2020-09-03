@@ -1,21 +1,13 @@
-@media screen and (max-width: 1125px){
-    .user_block {
-        margin-left: 64%;
-    }
-}
 @media screen and (max-width: 768px){
-    .main-nav a {
+    .main-ul a {
         width: 100px;
         margin-left: 15px;
         font-size: 11px;
         line-height: 1.5;
     }
-    .user_block {
-        margin-left: 52%;
-    }
 }
 @media screen and (max-width: 660px){
-    .main-nav a {
+    .main-ul a {
         font-size: 11px;
         width: 90px;
     }
@@ -47,14 +39,8 @@
     .main-ul {
         padding-left: 20px;
     }
-    .user_block {
-        margin-left: 64.2%;
-    }
 }
 @media screen and (max-width: 520px){
-    .user_block {
-        margin-left: 60.5%;
-    }
     .main-ul {
         padding-left: 0;
     }
@@ -82,7 +68,10 @@
         margin-left: 82%;
         display: block;
     }
-    .main-nav a {
+    .main-ul a {
         margin-left: 0;
+    }
+    .sub-nav a {
+        font-size: 13px;
     }
 }

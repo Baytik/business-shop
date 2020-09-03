@@ -54,7 +54,7 @@ export const sendPc = (computer) => {
             dispatch(postPcRequest());
             const send = await axiosAPI.post('/computers', computer, {headers: {'Authorization': token.token}});
             dispatch(postPcSuccess(send.data));
-            dispatch(push(`/details/${send.data._id}`));
+            dispatch(push(`/details/${send.data._id}`))
         } catch(error) {
             dispatch(postPcError(error.response.data))
         }
@@ -117,7 +117,7 @@ export const postIdForSold = (id,rebate) => {
             const sendId = await axiosAPI.put(`/computers/review/${id}`, rebate, {headers: {'Authorization': token.token}});
             dispatch(postIdSuccess(sendId.data));
         } catch (error) {
-            dispatch(postIdError(error))
+            dispatch(postIdError(error.response.statusText));
         }
     }
 };

@@ -11,6 +11,7 @@ import officeBg from '../../Components/Images/office_bg.jpg';
 import budgetGamingBg from '../../Components/Images/budget-gaming_bg.jpg';
 import gamingBg from '../../Components/Images/gaming_bg.jpeg';
 import allCategoryBg from '../../Components/Images/allCategory_bg.jpg';
+import mobileAllCategoryBg from '../../Components/Images/allCategoryMobileBg.jpg';
 import {deletePC, fetchPc} from "../../store/actions/pcAction";
 import {connect} from 'react-redux';
 import WOW from 'wow.js';
@@ -87,6 +88,12 @@ class MainComputers extends Component {
             bg.style.width = "100%";
         }else if(this.props.match.params.id === 'gaming'){
             bg.style.background = `url(${gamingBg})100% 50% no-repeat`;
+            bg.style.backgroundAttachment = "fixed";
+            bg.style.backgroundSize = "cover";
+            bg.style.height = "100%";
+            bg.style.width = "100%";
+        }else if(window.innerWidth <= 380){
+            bg.style.background = `url(${mobileAllCategoryBg})100% 50% no-repeat`;
             bg.style.backgroundAttachment = "fixed";
             bg.style.backgroundSize = "cover";
             bg.style.height = "100%";
@@ -200,7 +207,7 @@ class MainComputers extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="block_by wow animate__animated animate__fadeInDown">
+                                        <div className="block_by wow animate__animated animate__fadeIn">
                                             {this.props.user && (this.props.user.role === 'admin'||this.props.user.role === 'seller') ?(
                                                 <a href="/computers" className="delete" onClick={() => this.deleteHanlder(this.props.computers[info]._id)}>x</a>
                                             ) : (
@@ -295,7 +302,7 @@ class MainComputers extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="block_by wow animate__animated animate__fadeInDown">
+                                        <div className="block_by wow animate__animated animate__fadeInDownBig">
                                             {this.props.user && (this.props.user.role === 'admin'||this.props.user.role === 'seller') ?(
                                                 <a href="/computers" className="delete" onClick={() => this.deleteHanlder(this.props.computers[info]._id)}>x</a>
                                             ) : (

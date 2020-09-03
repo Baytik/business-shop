@@ -7,3 +7,10 @@ body {
 ::selection {
   background: #cd2c2f;
 }
+::-webkit-scrollbar{
+  width: 6px;
+  background:black;
+}
+::-webkit-scrollbar-thumb{
+  background: rgba(157, 157, 157, 0.45);
+}

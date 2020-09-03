@@ -55,6 +55,7 @@ class NotFeedbackReviews extends Component {
                                     <tr>
                                         <td>Название: {this.state.reviewsKeys[keys].pcName}</td>
                                         <td>Цена: {this.state.reviewsKeys[keys].price}</td>
+                                        <td>Скидка: {this.state.reviewsKeys[keys].rebate}</td>
                                         <td>Ключ: {this.state.reviewsKeys[keys].key}</td>
                                     </tr>
                                 </tbody>

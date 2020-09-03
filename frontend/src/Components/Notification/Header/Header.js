@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {logoutUser} from "../../../store/actions/usersAction";
 import menu from '../../Images/menu.png';
 import close from '../../Images/delete.png';
+import Modal from '../../UI/Modal/Modal';
 import './Header.css';
 import './MediaHeader.css';
 
@@ -14,6 +15,7 @@ class Header extends Component {
         display: '',
         show: '',
         logout: 'none',
+        modal: false,
     };
 
     componentDidMount() {
@@ -43,8 +45,15 @@ class Header extends Component {
         this.setState({display: 'none', show: 'block'});
     };
 
-    closeLogoutUser = () => {
-      this.setState({logout: 'none'})
+    showModal = () => {
+      this.setState({modal: true})
+    };
+    closeModal = () => {
+      this.setState({modal: false})
+    };
+
+    logoutUser = () => {
+      this.props.logoutUser();
     };
 
     render() {
@@ -73,24 +82,36 @@ class Header extends Component {
                         )}
                         {this.props.user && (
                             <>
-                                <li className="logout" onClick={() => this.setState({logout: 'block'})}>
+                                <li className="logout" onClick={this.showModal}>
                                     <p>Выйти</p>
                                 </li>
-                                <div className="user_block" style={{display:`${this.state.logout}`}}>
-                                    <div>
-                                        <img onClick={this.closeLogoutUser} src={close} alt=""/>
-                                        <p>Привет {this.props.user.displayName}!</p>
-                                        {this.props.user.role === 'admin' ? (
-                                            <NavLink to="/notFeedbackReviews" className="not_feedback_reviews">без отзывов</NavLink>
-                                        ) : (
-                                            <></>
-                                        )}
-                                        <button onClick={() => this.props.logoutUser(this.props.user)} className="logout_btn">Выйти</button>
-                                    </div>
-                                </div>
                             </>
                         )}
                     </ul>
+                    {this.props.user ? (
+                        <Modal show={this.state.modal} close={this.closeModal}>
+                            <div className="user_block">
+                                <h3>Привет {this.props.user.displayName}</h3>
+                                <p>В ваши права входит: {this.props.user && this.props.user.role === 'admin' ?
+                                    'доступ ко всем скрытым разделом,ни кто кроме вас не имеет доступ ко всем разделам!':
+                                    this.props.user.role === 'seller' ?
+                                        'добавлять компьютер,удалят компьютер,продавать,делать скидку и многое другое!':
+                                        this.props.user.role === 'operator' ?
+                                            ' приниматьь звонки от клиентов, смотреть заявки':'вы не имеете ни каких прав!!'} Удачи!</p>
+                                {this.props.user.role === 'admin' ? (
+                                    <NavLink onClick={() => this.setState({modal:false})} className="link_notFeedBack" to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
+                                ) : (
+                                    <></>
+                                )}
+                                <div className="btns_modal_close">
+                                    <button className="logout_btn" onClick={this.logoutUser}>выйти</button>
+                                    <button className="close_modal_in_logout" onClick={this.closeModal}>закрыть</button>
+                                </div>
+                            </div>
+                        </Modal>
+                    ) : (
+                        <></>
+                    )}
                     <div className="menu">
                         <img onClick={this.showMenuHandler} src={menu} alt="" style={{display: `${this.state.show}`}}
                              className="menu_img"/>
@@ -115,7 +136,7 @@ class Header extends Component {
                             )}
                             {this.props.user && (
                                 <>
-                                    <li className="logout_mobile" onClick={() => this.props.logoutUser(this.props.user)}>
+                                    <li className="logout_mobile" onClick={this.showModal}>
                                         Выйти
                                     </li>
                                 </>

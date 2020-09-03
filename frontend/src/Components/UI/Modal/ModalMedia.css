@@ -63,6 +63,9 @@
         width: 80%;
         left: 10%;
     }
+    .link_notFeedBack, .btns_modal_close button{
+        font-size: 14px;
+    }
 }
 @media screen and (max-width: 325px) {
     .close_modal , .copy {
