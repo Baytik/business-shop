@@ -20,7 +20,7 @@ class Header extends Component {
 
     componentDidMount() {
         const head = document.getElementById('head');
-        if(window.location.pathname === '/login'
+        if (window.location.pathname === '/login'
             || window.location.pathname === '/computers'
             || window.location.pathname === '/computersgaming'
             || window.location.pathname === '/computersoffice'
@@ -29,10 +29,10 @@ class Header extends Component {
             || window.location.pathname === `/details/:id`
             || window.location.pathname === '/detailInfoComputers'
             || window.location.pathname === '/reviews'
-            || window.location.pathname === '/notFeedbackReviews'){
+            || window.location.pathname === '/notFeedbackReviews') {
 
             head.style.display = "block";
-        }else{
+        } else {
             head.style.display = "none";
         }
     }
@@ -46,14 +46,14 @@ class Header extends Component {
     };
 
     showModal = () => {
-      this.setState({modal: true})
+        this.setState({modal: true})
     };
     closeModal = () => {
-      this.setState({modal: false})
+        this.setState({modal: false})
     };
 
     logoutUser = () => {
-      this.props.logoutUser();
+        this.props.logoutUser();
     };
 
     render() {
@@ -93,13 +93,14 @@ class Header extends Component {
                             <div className="user_block">
                                 <h3>Привет {this.props.user.displayName}</h3>
                                 <p>В ваши права входит: {this.props.user && this.props.user.role === 'admin' ?
-                                    'доступ ко всем скрытым разделом,ни кто кроме вас не имеет доступ ко всем разделам!':
+                                    'Доступ ко всем скрытым разделам,ни кто кроме вас не имеет доступа ко всем разделам!' :
                                     this.props.user.role === 'seller' ?
-                                        'добавлять компьютер,удалят компьютер,продавать,делать скидку и многое другое!':
+                                        'Добавлять компьютер,удалять компьютер, редактировать и продавать,делать скидку и многое другое!' :
                                         this.props.user.role === 'operator' ?
-                                            ' приниматьь звонки от клиентов, смотреть заявки':'вы не имеете ни каких прав!!'} Удачи!</p>
+                                            ' принимать звонки от клиентов, смотреть заявки' : 'вы не имеете ни каких прав!!'} Удачи!</p>
                                 {this.props.user.role === 'admin' ? (
-                                    <NavLink onClick={() => this.setState({modal:false})} className="link_notFeedBack" to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
+                                    <NavLink onClick={() => this.setState({modal: false})} className="link_notFeedBack"
+                                             to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
                                 ) : (
                                     <></>
                                 )}
@@ -115,7 +116,8 @@ class Header extends Component {
                     <div className="menu">
                         <img onClick={this.showMenuHandler} src={menu} alt="" style={{display: `${this.state.show}`}}
                              className="menu_img"/>
-                        <ul className="sub-nav animate__animated animate__fadeInRight" style={{display: `${this.state.display}`}}>
+                        <ul className="sub-nav animate__animated animate__fadeInRight"
+                            style={{display: `${this.state.display}`}}>
                             <img onClick={this.closeMenuHandler} src={close} alt="" className="close"/>
                             <li>
                                 <NavLink to="/computers">Список Компьютеров</NavLink>

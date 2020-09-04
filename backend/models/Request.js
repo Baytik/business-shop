@@ -12,8 +12,9 @@ const RequestSchema = new mongoose.Schema({
     completed: {
         type: Boolean,
         required: true,
-        default: false,
-    }
+        default: false
+    },
+    email: String,
 });
 
 const Request = mongoose.model('Request', RequestSchema);

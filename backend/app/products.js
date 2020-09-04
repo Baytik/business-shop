@@ -72,6 +72,45 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
     }
 });
 
+router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], async (req, res) => {
+    if (req.file) {
+        req.body.image = req.file.filename;
+    }
+    const product = await Product.findOne({_id: req.params.id});
+
+    if (product) {
+        fs.unlink('./public/uploads/' + product.image, function (err) {
+            if (err) {
+                return res.status(400).send(err)
+            } else {
+                console.log('OK')
+            }
+        });
+    }
+
+    product.box = req.body.box;
+    product.cpu = req.body.cpu;
+    product.ram = req.body.ram;
+    product.hdd = req.body.hdd;
+    product.cooler = req.body.cooler;
+    product.power = req.body.power;
+    product.motherBoard = req.body.motherBoard;
+    product.pcName = req.body.pcName;
+    product.image = req.body.image;
+    product.gpu = req.body.gpu;
+    product.ssd = req.body.ssd;
+    product.monitor = req.body.monitor;
+    product.category = req.body.category;
+    product.price = req.body.price;
+
+    try {
+        await product.save();
+        return res.send(product);
+    } catch (error) {
+        return res.status(400).send(error);
+    }
+});
+
 router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) => {
     const products = await Product.findOne({_id: req.params.id});
     if (products) {

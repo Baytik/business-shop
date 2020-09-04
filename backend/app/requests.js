@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
     const newRequest = {
         phone: req.body.phone,
         description: req.body.description,
+        email: req.body.email
     };
 
     const request = new Request(newRequest);
