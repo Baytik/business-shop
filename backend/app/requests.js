@@ -6,13 +6,13 @@ const permit = require('../middleware/permit');
 const router = express.Router();
 
 router.get('/', [auth, permit('admin', 'operator')], async (req, res) => {
-    const requests = await Request.find();
-    return res.send(requests.reverse());
-});
-
-router.get('/:complete', [auth, permit('admin', 'operator')], async (req, res) => {
-    const requests = await Request.find({completed: req.params.complete});
-    return res.send(requests.reverse());
+    if (req.body.completed === 'true' || req.body.completed === 'false') {
+        const requests = await Request.find({completed: req.body.completed});
+        return res.send(requests.reverse());
+    } else {
+        const requests = await Request.find();
+        return res.send(requests.reverse());
+    }
 });
 
 router.post('/', async (req, res) => {
