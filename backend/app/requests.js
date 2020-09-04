@@ -10,6 +10,11 @@ router.get('/', [auth, permit('admin', 'operator')], async (req, res) => {
     return res.send(requests.reverse());
 });
 
+router.get('/:complete', [auth, permit('admin', 'operator')], async (req, res) => {
+    const requests = await Request.find({completed: req.params.complete});
+    return res.send(requests.reverse());
+});
+
 router.post('/', async (req, res) => {
     const newRequest = {
         phone: req.body.phone,
