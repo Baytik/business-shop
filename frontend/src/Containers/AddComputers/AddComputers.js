@@ -42,15 +42,15 @@ class AddComputers extends Component {
     };
 
     addPcHandler = async () => {
+        const computer = new FormData();
+        Object.keys(this.state).forEach(key => {
+            computer.append(key, this.state[key]);
+        });
+        await this.props.sendPc(computer);
         if(this.props.postPcError){
             toast.error(`${this.props.postPcError._message}`);
         } else {
-            const computer = new FormData();
-            Object.keys(this.state).forEach(key => {
-                computer.append(key, this.state[key]);
-            });
-            await this.props.sendPc(computer);
-            toast.success('Компьютер добавлен успешно!')
+            toast.success('Компьютер добавлен успешно!');
         }
     };
 

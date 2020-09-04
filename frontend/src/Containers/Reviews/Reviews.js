@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from "../../Components/UI/Modal/Modal";
-import {postReviews,fetchReviews} from "../../store/actions/ReviewsActions";
+import {postReviews,fetchReviews,deleteReview} from "../../store/actions/ReviewsActions";
 import {connect} from "react-redux";
 import {toast,ToastContainer} from "react-toastify";
 import './Reviews.css';
@@ -67,6 +67,17 @@ class Reviews extends Component {
         }
     };
 
+    deleteReviewHandler = async (id) => {
+        await this.props.deleteReview(id);
+
+        if(this.props.deleteReviewError !== null){
+            toast.error(`${this.props.deleteReviewError}`);
+        }else {
+            toast.dark('Отзыв удален');
+            this.componentDidMount()
+        }
+    };
+
     render() {
         return (
             <div className="ReviewsContainer">
@@ -92,6 +103,11 @@ class Reviews extends Component {
                                         <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
                                         <p className="review_text">{this.state.reviews[reviews].review}</p>
                                         <p className="review_price">Купил за - {this.state.reviews[reviews].price} сом</p>
+                                        {this.props.user && (this.props.user.role === 'admin' || this.props.user.role === 'operator') ? (
+                                            <button onClick={() => this.deleteReviewHandler(this.state.reviews[reviews]._id)} className="delete_review">удалить</button>
+                                        ) : (
+                                            <></>
+                                        )}
                                     </div>
                                 ))}
                                 <button disabled={this.state.disable} className="load_more" onClick={this.loadMoreHandler}>загрузить еще</button>
@@ -107,11 +123,14 @@ const mapStateToProps = state => ({
     postReviewsError: state.postReviewsError.postReviewsError,
     reviews: state.reviews.reviews,
     spinner: state.pc.spinner,
+    user: state.user.user,
+    deleteReviewError: state.reviews.deleteReviewError,
 });
 
 const mapDispatchToProps = dispatch => ({
     postReviews: (reviews) => dispatch(postReviews(reviews)),
     fetchReviews: () => dispatch(fetchReviews()),
+    deleteReview: (id) => dispatch(deleteReview(id)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps) (Reviews);

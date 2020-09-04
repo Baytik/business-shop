@@ -50,16 +50,26 @@ class NotFeedbackReviews extends Component {
                     <div className="reviewsKeysTables">
                         <h3 className="title_reviewsKeys">Все проданные компьютеры с не оставленными отзывами</h3>
                         <table>
-                            {this.state.reviewsKeys && Object.keys(this.state.reviewsKeys).map(keys => (
-                                <tbody key={keys}>
-                                    <tr>
-                                        <td>Название: {this.state.reviewsKeys[keys].pcName}</td>
-                                        <td>Цена: {this.state.reviewsKeys[keys].price}</td>
-                                        <td>Скидка: {this.state.reviewsKeys[keys].rebate}</td>
-                                        <td>Ключ: {this.state.reviewsKeys[keys].key}</td>
+                            {this.state.reviewsKeys.length > 1 ? (
+                                this.state.reviewsKeys && Object.keys(this.state.reviewsKeys).map(keys => (
+                                        <tbody key={keys}>
+                                        <tr>
+                                            <td>Название: {this.state.reviewsKeys[keys].pcName}</td>
+                                            <td>Цена: {this.state.reviewsKeys[keys].price}</td>
+                                            <td>Скидка: {this.state.reviewsKeys[keys].rebate}</td>
+                                            <td>Ключ: {this.state.reviewsKeys[keys].key}</td>
+                                        </tr>
+                                        </tbody>
+                                    ))
+                            ) : (
+                                <>
+                                 <tbody>
+                                    <tr className="not_found_tr">
+                                        <td>Нечего не найдено!</td>
                                     </tr>
-                                </tbody>
-                            ))}
+                                 </tbody>
+                                </>
+                            )}
                         </table>
                     </div>
                 )}

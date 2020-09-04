@@ -1,0 +1,33 @@
+@media screen and (max-width: 480px) {
+    .phone_block input {
+        font-size: 12px;
+    }
+    .big_text {
+        font-size: 16px;
+    }
+    .many_text_support p {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 380px){
+    .send_question {
+        width: 70%;
+        margin-left: 17%;
+    }
+    .phone_block  {
+        display: block;
+        margin-left: 7.5%;
+    }
+    .phone_block input {
+        width:99.9%;
+        margin-top: 2%;
+    }
+    .inputs_support textarea {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 320px){
+    .phone_block input {
+        width: 99.5%;
+    }
+}

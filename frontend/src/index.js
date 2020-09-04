@@ -10,7 +10,8 @@ import {ConnectedRouter, connectRouter, routerMiddleware} from "connected-react-
 import 'react-toastify/dist/ReactToastify.css';
 import usersReducer from "./store/reducers/usersReducer";
 import {pcReducer} from './store/reducers/pcReducer';
-import ReviewsReducer from './store/reducers/ReviewsReducer';
+import {ReviewsReducer} from './store/reducers/ReviewsReducer';
+import {RequestReducer} from './store/reducers/RequestReducer';
 
 const saveToLocalStorage = state => {
     try {
@@ -46,6 +47,8 @@ const rootReducer = combineReducers({
     postReviewsError: ReviewsReducer,
     reviews: ReviewsReducer,
     reviewsKeys: ReviewsReducer,
+    postRequestError: RequestReducer,
+    requests: RequestReducer,
 });
 
 const middleware = [

@@ -74,3 +74,26 @@
     box-shadow: 0 0 10px white;
     background: rgba(0, 0, 0, 0.29);
 }
+.delete_review {
+    width: 40%;
+    margin-top: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-left: 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    text-transform: capitalize;
+    font-family: 'monospace';
+    font-size: 18px;
+}
+.delete_review:hover {
+    border: 2px solid red;
+    box-shadow: 0 0 20px darkred;
+}
+.delete_review:focus {
+    background: #ff2020;
+    outline: none;
+    transition: all 0.2s;
+    color: white;
+}
