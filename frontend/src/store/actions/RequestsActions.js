@@ -34,9 +34,9 @@ export const fetchRequests = () => {
         try{
             const token = getState().user.user;
             dispatch(getRequestRequest());
-            const response = await axiosAPI.get('/requests',{headers:{'Authorization': token.token}});
+            const response = await axiosAPI.get('/requests/false',{headers:{'Authorization': token.token}});
             dispatch(getRequestSuccess(response.data));
-        }catch(error){
+        }catch(error) {
             dispatch(getRequestError(error.response));
         }
     }

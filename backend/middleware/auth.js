@@ -2,7 +2,6 @@ const User = require('../models/User');
 
 const auth = async (req, res, next) => {
     const authorization = req.get('Authorization');
-    console.log(authorization);
     if (!authorization) {
         return res.status(404).send({error: 'Unauthorized'})
     }

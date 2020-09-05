@@ -5,9 +5,9 @@ const permit = require('../middleware/permit');
 
 const router = express.Router();
 
-router.get('/', [auth, permit('admin', 'operator')], async (req, res) => {
-    if (req.body.completed === 'true' || req.body.completed === 'false') {
-        const requests = await Request.find({completed: req.body.completed});
+router.get('/:completed', [auth, permit('admin', 'operator')], async (req, res) => {
+    if (req.params.completed === 'true' || req.params.completed === 'false') {
+        const requests = await Request.find({completed: req.params.completed});
         return res.send(requests.reverse());
     } else {
         const requests = await Request.find();

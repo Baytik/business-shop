@@ -11,6 +11,7 @@ class Requests extends Component {
     }
 
     render() {
+        console.log(this.props.requests)
         if(!this.props.user) return <Redirect to="/computers"/>;
 
         return (

@@ -95,11 +95,11 @@ class Header extends Component {
                             <div className="user_block">
                                 <h3>Привет {this.props.user.displayName}</h3>
                                 <p>В ваши права входит: {this.props.user && this.props.user.role === 'admin' ?
-                                    'доступ ко всем скрытым разделом,ни кто кроме вас не имеет доступ ко всем разделам!':
+                                    'Доступ ко всем скрытым разделом,ни кто кроме вас не имеет доступа ко всем разделам!':
                                     this.props.user.role === 'seller' ?
-                                        'добавлять компьютер,удалят компьютер,продавать,делать скидку и многое другое!':
+                                        'Добавлять компьютер,удалять компьютер,продавать, редактировать, делать скидку и многое другое!':
                                         this.props.user.role === 'operator' ?
-                                            ' приниматьь звонки от клиентов, смотреть заявки':'вы не имеете ни каких прав!!'} Удачи!</p>
+                                            'Принимать звонки от клиентов, смотреть заявки' : 'вы не имеете ни каких прав!!'} Удачи!</p>
                                 {this.props.user.role === 'admin' ? (
                                     <NavLink onClick={() => this.setState({modal:false})} className="link_notFeedBack" to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
                                 ) : (
