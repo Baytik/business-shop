@@ -32,4 +32,19 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+router.put('/:id', [auth, permit('admin', 'operator')], async (req, res) => {
+    try {
+        const request = await Request.findOne({_id: req.params.id});
+        if (!request) {
+            res.status(404).send({error: 'Заявка не найдена'})
+        }
+        request.completed = !request.completed;
+        await request.save();
+        return res.send(request);
+    } catch (error) {
+        return res.status(400).send({error: 'Плохой запрос'});
+    }
+});
+
 module.exports = router;

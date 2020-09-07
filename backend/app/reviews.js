@@ -53,7 +53,7 @@ router.delete('/:id', [auth, permit('admin')], async (req, res) => {
         await products.save();
         return res.send({message: 'Успешно удалён'})
     } catch (error) {
-        return res.status(400).send({error: 'Компьютер не найден'})
+        return res.status(400).send({error: 'Плохой запрос'})
     }
 });
 
