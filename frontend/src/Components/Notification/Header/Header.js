@@ -26,7 +26,6 @@ class Header extends Component {
             || window.location.pathname === '/computersoffice'
             || window.location.pathname === '/computersbudget-gaming'
             || window.location.pathname === '/addComputer'
-            || window.location.pathname === `/details/:id`
             || window.location.pathname === '/detailInfoComputers'
             || window.location.pathname === '/reviews'
             || window.location.pathname === '/notFeedbackReviews'

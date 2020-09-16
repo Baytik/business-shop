@@ -79,13 +79,17 @@
     text-transform: capitalize;
     font-weight: bold;
 }
-.back_and_sold {
+.edit_and_sold {
     display: flex;
     justify-content: center;
     height: 194px;
 }
+.back_btn {
+    display: flex;
+    justify-content: center;
+}
 .back {
-    width: 30%;
+    width: 40%;
     height: 35px;
     background: transparent;
     border: 2px solid white;
@@ -100,7 +104,7 @@
     transition: all 0.5s;
     outline: none;
 }
-.sold {
+.sold , .edit{
     width: 30%;
     height: 35px;
     background: transparent;
@@ -125,6 +129,10 @@
 .sold:hover {
     background: rgba(0,59,26,0.79);
     box-shadow:0 0 20px greenyellow;
+}
+.edit:hover {
+    background: #bc9700;
+    box-shadow: 0 0 20px yellowgreen;
 }
 .rebate {
     display: flex;

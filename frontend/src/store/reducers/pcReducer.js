@@ -2,7 +2,8 @@ import {POST_PC_REQUEST,POST_PC_ERROR,POST_PC_SUCCESS,
         GET_PC_SUCCESS,GET_PC_REQUEST,GET_PC_ERROR,
         GET_PC_DETAILS_REQUEST,GET_PC_DETAILS_SUCCESS,GET_PC_DETAILS_ERROR,
         POST_ID_REQUEST,POST_ID_SUCCESS,POST_ID_ERROR,
-        GET_ID_REQUEST,GET_ID_SUCCESS,GET_ID_ERROR
+        GET_ID_REQUEST,GET_ID_SUCCESS,GET_ID_ERROR,
+        PUT_PC_REQUEST,PUT_PC_SUCCESS,PUT_PC_ERROR
 } from "../actions/pcAction";
 
 const initialState = {
@@ -11,12 +12,13 @@ const initialState = {
     keyForComment: {},
     computerId:{},
     idError:null,
-    spinner:false,
+    spinner: false,
     getPcError:null,
     detailsPc: null,
     postPcError: null,
     getPcDetailsError: null,
-    keyForCommentError:null
+    keyForCommentError:null,
+    putPcError: null,
 };
 
 export const pcReducer = (state = initialState , action) => {
@@ -56,6 +58,14 @@ export const pcReducer = (state = initialState , action) => {
             return{...state, computerId: action.computerId , spinner: false , idError: null};
         case GET_ID_ERROR:
             return{...state, idError: action.error , spinner: false};
+
+        case PUT_PC_REQUEST:
+            return{...state, spinner: false, putPcError: null};
+        case PUT_PC_SUCCESS:
+            return{...state, spinner: false , putPcError: null};
+        case PUT_PC_ERROR:
+            return{...state, putPcError: action.error , spinner: false};
+
         default:
             return state;
     }

@@ -110,8 +110,7 @@ class AddComputers extends Component {
 
                         <div className="btns">
                             <button onClick={this.addPcHandler} className="add">Добавить</button>
-                            <button onClick={() => this.props.history.push('/computers')} className="cancel">Отмена
-                            </button>
+                            <button onClick={() => this.props.history.push('/computers')} className="cancel">Отмена</button>
                         </div>
                     </div>
                 )}

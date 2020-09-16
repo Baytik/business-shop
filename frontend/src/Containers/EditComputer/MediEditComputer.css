@@ -1,0 +1,16 @@
+@media screen and (max-width: 480px){
+    .inputs_edit input {
+        width: 40%;
+    }
+    .label_for_file_edit {
+        width: 91%;
+    }
+    .category_edit {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 380px) {
+    .inputs_edit input {
+        width: 90%;
+    }
+}

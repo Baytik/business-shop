@@ -24,6 +24,10 @@ export const GET_ID_REQUEST = 'GET_ID_REQUEST';
 export const GET_ID_SUCCESS = 'GET_ID_SUCCESS';
 export const GET_ID_ERROR = 'GET_ID_ERROR';
 
+export const PUT_PC_REQUEST = 'PUT_PC_REQUEST';
+export const PUT_PC_SUCCESS = 'PUT_PC_SUCCESS';
+export const PUT_PC_ERROR = 'PUT_PC_ERROR';
+
 export const postPcRequest = (spinner) => ({type: POST_PC_REQUEST, spinner});
 export const postPcSuccess = (computer) => ({type: POST_PC_SUCCESS,computer});
 export const postPcError = (error) => ({type: POST_PC_ERROR,error});
@@ -46,6 +50,10 @@ export const postIdError = (error) => ({type: POST_ID_ERROR,error});
 export const getIdRequest = (spinner) => ({type: GET_ID_REQUEST, spinner});
 export const getIdSuccess = (computerId) => ({type: GET_ID_SUCCESS,computerId});
 export const getIdError = (error) => ({type: GET_ID_ERROR,error});
+
+export const putPcRequest = (spinner) => ({type: PUT_PC_REQUEST,spinner});
+export const putPcSuccess = () => ({type: PUT_PC_SUCCESS});
+export const putPcError = (error) => ({type: PUT_PC_ERROR,error});
 
 export const sendPc = (computer) => {
     return async (dispatch, getState) => {
@@ -118,6 +126,19 @@ export const postIdForSold = (id,rebate) => {
             dispatch(postIdSuccess(sendId.data));
         } catch (error) {
             dispatch(postIdError(error.response.statusText));
+        }
+    }
+};
+
+export const editComputer = (id,edit) => {
+    return async (dispatch,getState) => {
+        try{
+            const token = getState().user.user;
+            dispatch(putPcRequest());
+            const editPc = await axiosAPI.put(`/computers/${id}`,edit,{headers: {'Authorization': token.token}});
+            dispatch(putPcSuccess(editPc.data));
+        }catch(error){
+            dispatch(putPcError(error.response.statusText))
         }
     }
 };

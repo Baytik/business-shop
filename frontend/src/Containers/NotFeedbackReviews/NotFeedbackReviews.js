@@ -14,6 +14,8 @@ class NotFeedbackReviews extends Component {
 
      componentDidMount() {
         this.props.fetchReviewsKeys();
+        const footer = document.getElementById('footer');
+        footer.style.display = 'block';
         const interval = setTimeout(this.keysHandler,100);
 
         if(this.state.reviewsKeys.length > 0 ){

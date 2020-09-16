@@ -22,15 +22,18 @@ import Modal from '../../Components/UI/Modal/Modal';
 import {toast,ToastContainer} from "react-toastify";
 import './Details.css'
 import Spinner from "../../Components/UI/Spinner/Spinner";
+import WOW from 'wow.js';
 
 class Details extends Component {
 
     state = {
         modal: false,
         rebate:'',
+        editModal: false,
     };
 
     componentDidMount() {
+        new WOW().init();
         this.props.fetchPcForDetails(this.props.match.params.id);
 
         const date = new Date();
@@ -74,6 +77,7 @@ class Details extends Component {
             this.setState({modal: true});
         }
     };
+
     closeModal = () => {
       this.setState({modal: false});
     };
@@ -120,7 +124,7 @@ class Details extends Component {
                             <></>
                         ) : (
                             <div className="computer_all_details">
-                                <div className="pc_name animate__animated animate__fadeInDown">
+                                <div className="pc_name wow animate__animated animate__fadeInDown">
                                     <h2>Подробнее о {this.props.detailsPc.pcName}</h2>
                                 </div>
                                 <div className="computer_details">
@@ -237,10 +241,15 @@ class Details extends Component {
                                 ) : (
                                     <></>
                                 )}
-                                <div className="back_and_sold">
+                                <div className="back_btn">
                                     <button className="back" onClick={() => this.props.history.push('/computers')}>назад</button>
+                                </div>
+                                <div className="edit_and_sold">
                                     {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
-                                        <button className="sold" onClick={() => this.sendId(this.props.detailsPc._id)}>продано</button>
+                                        <>
+                                            <button className="sold" onClick={() => this.sendId(this.props.detailsPc._id)}>продано</button>
+                                            <button className="edit" onClick={() => this.props.history.push(`/edit/${this.props.detailsPc._id}`)}>редактировать</button>
+                                        </>
                                     ) : (
                                         <></>
                                     )}

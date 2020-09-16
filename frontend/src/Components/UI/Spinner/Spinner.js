@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import './Spinner.css';
 
 class Spinner extends Component {
+
+    componentDidMount() {
+        const spinner = document.querySelector('.Spinner');
+        spinner.style.height = `${window.outerHeight}px`;
+        spinner.style.width = `${window.outerWidth}px`;
+        spinner.style.display = 'flex';
+        spinner.style.justifyContent = 'center';
+        spinner.style.paddingTop = `${window.outerHeight / 4}px`;
+    }
+
     render() {
         return (
             <div>

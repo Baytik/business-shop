@@ -1,0 +1,96 @@
+.EditContainer {
+    background: url("../../Components/Images/edit_bg.jpg")100% 100% no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.inputs_edit {
+    padding-top: 100px;
+}
+.many_inputs_edit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.inputs_edit input {
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.68);
+    height: 35px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: white;
+    font-family: 'monospace';
+    margin-top: 30px;
+    outline: none;
+    transition: all 0.5s;
+}
+.inputfile_edit {
+    display: none;
+}
+.label_for_file_edit {
+    width: 30%;
+    background: rgb(0,0,0,0.50);
+    height: 25px;
+    padding-top: 5px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: white;
+    font-family: 'monospace';
+    margin-top: 20px;
+    text-align: center;
+    outline: none;
+}
+.inputs_edit input:focus {
+    border-bottom: 2px solid white;
+}
+.title_edit {
+    text-align: center;
+    color: white;
+    background: rgb(0,0,0,0.70);
+    font-size: 20px;
+    font-family: 'monospace';
+    height: 30px;
+    padding-top: 5px;
+}
+.category_edit {
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.68);
+    height: 30px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: white;
+    font-family: 'monospace';
+    margin-top: 20px;
+    outline: none;
+    transition: all 0.5s;
+}
+.back_and_edit {
+    display: flex;
+    justify-content: space-around;
+}
+.back_edit , .edit_edit{
+    width: 40%;
+    background: rgb(0,0,0,0.50);
+    margin-top: 30px;
+    border: 2px solid white;
+    color: white;
+    font-family: 'monospace';
+    text-align: center;
+    font-size: 18px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.back_edit:hover {
+    background: rgba(126,6,0,0.75);
+    box-shadow: 0 0 20px darkred;
+}
+.edit_edit:hover {
+    background: rgba(171,137,0,0.75);
+    box-shadow: 0 0 20px yellowgreen;
+}

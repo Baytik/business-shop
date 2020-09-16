@@ -11,6 +11,7 @@ import Reviews from "./Containers/Reviews/Reviews";
 import NotFeedbackReviews from "./Containers/NotFeedbackReviews/NotFeedbackReviews";
 import SupportService from "./Containers/SupportService/SupportService";
 import Requests from "./Containers/Requests/Requests";
+import EditComputer from "./Containers/EditComputer/EditComputer";
 import './App.css';
 import Footer from "./Components/Notification/Footer/Footer";
 import {fetchId} from "./store/actions/pcAction";
@@ -19,7 +20,8 @@ import {connect} from 'react-redux';
 class App extends Component {
 
     state = {
-        details:''
+        details:'',
+        edits:'',
     };
 
     componentDidMount() {
@@ -29,15 +31,23 @@ class App extends Component {
 
     findId = () => {
         const idForDetails = [];
+        const idForEdit = [];
 
         Object.keys(this.props.computerId).forEach(id => {
             const ids = `/details/${this.props.computerId[id]._id}`;
-            idForDetails.push(ids)
+            const ids2 = `/edit/${this.props.computerId[id]._id}`;
+            idForDetails.push(ids);
+            idForEdit.push(ids2);
         });
 
         for (let i = 0; i < idForDetails.length; i++) {
             if(window.location.pathname === idForDetails[i]) {
                 this.setState({details: idForDetails[i]})
+            }
+        }
+        for (let i = 0; i < idForEdit.length; i++) {
+            if(window.location.pathname === idForEdit[i]) {
+                this.setState({details: idForEdit[i]})
             }
         }
     };
@@ -57,7 +67,8 @@ class App extends Component {
                     || window.location.pathname === '/reviews'
                     || window.location.pathname === '/notFeedbackReviews'
                     || window.location.pathname === '/support'
-                    || window.location.pathname === '/requests') ? (
+                    || window.location.pathname === '/requests'
+                    || window.location.pathname === this.state.edits) ? (
                     <Switch>
                         <Route path="/" exact component={Greeting}/>
                         <Route path="/login" component={Login}/>
@@ -69,6 +80,7 @@ class App extends Component {
                         <Route path="/notFeedbackReviews" component={NotFeedbackReviews}/>
                         <Route path="/support" component={SupportService}/>
                         <Route path="/requests" component={Requests}/>
+                        <Route path="/edit/:id" component={EditComputer}/>
                     </Switch>
                 ) : (
                     <>
