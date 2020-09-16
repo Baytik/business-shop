@@ -55,7 +55,7 @@ export const completedRequest = (id) => {
       try{
           const token = getState().user.user;
           dispatch(putRequestRequest());
-          const completed = await axiosAPI.put(`/requests/${id}`,{headers:{'Authorization': token.token}});
+          const completed = await axiosAPI.put(`/requests/${id}`,id,{headers:{'Authorization': token.token}});
           dispatch(putRequestSuccess(completed))
       }catch(error){
           dispatch(putRequestError(error.response.statusText));
