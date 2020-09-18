@@ -1,18 +1,26 @@
 const express = require('express');
 const User = require('../models/User');
 const bcrypt = require("bcrypt");
-
 const router = express.Router();
 
-router.post('/', async (req, res) => {
-    if (req.file) {
-        req.body.avatar = req.file.filename;
-    }
-    const object = {
+const auth = require('../middleware/auth');
+const permit = require('../middleware/permit');
+
+router.get('/', [auth, permit('admin')],  async (req, res) => {
+    const users = await User.find();
+    const usersFilter = users.filter((user) => user._id.toString() !== req.user._id.toString());
+    return res.send(usersFilter)
+});
+
+router.post('/', [auth, permit('admin')],  async (req, res) => {
+
+    const newUser = {
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        displayName: req.body.displayName,
+        role: req.body.role
     };
-    const user = new User(object);
+    const user = new User(newUser);
     try {
         user.generateToken();
         await user.save();
@@ -48,6 +56,15 @@ router.delete('/sessions', async (req, res) => {
         return res.send(success)
     } catch (e) {
         return res.send(success)
+    }
+});
+
+router.delete('/:id', [auth, permit('admin')], async (req, res) => {
+    try {
+        await User.deleteOne({_id: req.params.id});
+        return res.send({message: 'Was deleted'})
+    } catch (error) {
+        return res.status(400).send(error)
     }
 });
 
