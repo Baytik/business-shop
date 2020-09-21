@@ -79,7 +79,7 @@ router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], as
     }
     const product = await Product.findOne({_id: req.params.id});
 
-    if (product) {
+    if (req.body.image) {
         fs.unlink('./public/uploads/' + product.image, function (err) {
             if (err) {
                 return res.status(400).send(err)
