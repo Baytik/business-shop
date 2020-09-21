@@ -12,6 +12,8 @@ import NotFeedbackReviews from "./Containers/NotFeedbackReviews/NotFeedbackRevie
 import SupportService from "./Containers/SupportService/SupportService";
 import Requests from "./Containers/Requests/Requests";
 import EditComputer from "./Containers/EditComputer/EditComputer";
+import AddUser from "./Containers/AddUser/AddUser";
+import UsersList from "./Containers/UsersList/UsersList";
 import './App.css';
 import Footer from "./Components/Notification/Footer/Footer";
 import {fetchId} from "./store/actions/pcAction";
@@ -68,7 +70,9 @@ class App extends Component {
                     || window.location.pathname === '/notFeedbackReviews'
                     || window.location.pathname === '/support'
                     || window.location.pathname === '/requests'
-                    || window.location.pathname === this.state.edits) ? (
+                    || window.location.pathname === this.state.edits
+                    || window.location.pathname === '/addUser'
+                    || window.location.pathname === '/usersList') ? (
                     <Switch>
                         <Route path="/" exact component={Greeting}/>
                         <Route path="/login" component={Login}/>
@@ -81,6 +85,8 @@ class App extends Component {
                         <Route path="/support" component={SupportService}/>
                         <Route path="/requests" component={Requests}/>
                         <Route path="/edit/:id" component={EditComputer}/>
+                        <Route path="/addUser" component={AddUser}/>
+                        <Route path="/usersList" component={UsersList}/>
                     </Switch>
                 ) : (
                     <>

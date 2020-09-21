@@ -30,7 +30,10 @@ class Header extends Component {
             || window.location.pathname === '/reviews'
             || window.location.pathname === '/notFeedbackReviews'
             || window.location.pathname === '/support'
-            || window.location.pathname === '/requests'){
+            || window.location.pathname === '/requests'
+            || window.location.pathname === '/addUser'
+            || window.location.pathname === '/usersList'
+            || window.location.pathname === '/reviews'){
 
             head.style.display = "block";
         }else{
@@ -74,17 +77,10 @@ class Header extends Component {
                         <li className="link-4">
                             <NavLink to="/reviews">Отзывы</NavLink>
                         </li>
-                        {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
-                            <li className="link-5">
-                                <NavLink to="/addComputer">Добавить компьютер</NavLink>
-                            </li>
-                        ) : (
-                            <></>
-                        )}
                         {this.props.user && (
                             <>
                                 <li className="logout" onClick={this.showModal}>
-                                    <p>Выйти</p>
+                                    <p>Меню</p>
                                 </li>
                             </>
                         )}
@@ -99,11 +95,27 @@ class Header extends Component {
                                         'Добавлять компьютер,удалять компьютер,продавать, редактировать, делать скидку и многое другое!':
                                         this.props.user.role === 'operator' ?
                                             'Принимать звонки от клиентов, смотреть заявки' : 'вы не имеете ни каких прав!!'} Удачи!</p>
-                                {this.props.user.role === 'admin' ? (
-                                    <NavLink onClick={() => this.setState({modal:false})} className="link_notFeedBack" to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
-                                ) : (
-                                    <></>
-                                )}
+                                    <div className="links_in_modal">
+                                        {this.props.user.role === 'admin' ? (
+                                            <>
+                                                <NavLink onClick={() => this.setState({modal:false})} to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
+                                                <NavLink onClick={() => this.setState({modal:false})} to="/addUser">Добавить пользователя</NavLink>
+                                                <NavLink onClick={() => this.setState({modal:false})} to="/usersList">список пользователей</NavLink>
+                                            </>
+                                        ) : (
+                                            <></>
+                                        )}
+                                        {this.props.user && (this.props.user.role === 'operator' || this.props.user.role === 'admin') ? (
+                                            <NavLink onClick={() => this.setState({modal:false})} to="/requests">Вопросы и жалобы</NavLink>
+                                        ) : (
+                                            <></>
+                                        )}
+                                        {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
+                                            <NavLink onClick={() => this.setState({modal:false})} to="/addComputer">Добавить компьютер</NavLink>
+                                        ) : (
+                                            <></>
+                                        )}
+                                    </div>
                                 <div className="btns_modal_close">
                                     <button className="logout_btn" onClick={this.logoutUser}>выйти</button>
                                     <button className="close_modal_in_logout" onClick={this.closeModal}>закрыть</button>
@@ -138,7 +150,7 @@ class Header extends Component {
                             {this.props.user && (
                                 <>
                                     <li className="logout_mobile" onClick={this.showModal}>
-                                        Выйти
+                                        Меню
                                     </li>
                                 </>
                             )}

@@ -1,0 +1,61 @@
+.AddUserContainer {
+    background: url("../../Components/Images/addUser-bg.jpg")100% 100% no-repeat;
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+    height: 700px;
+}
+.titles {
+    color: white;
+    font-family: 'monospace';
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+    margin: 0;
+    text-transform: capitalize;
+    padding-top: 80px;
+}
+.inputs_user {
+
+}
+.inputs_user input , select{
+    width: 80%;
+    margin-left: 10%;
+    background: rgba(0,0,0,0.50);
+    height: 30px;
+    margin-top: 30px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding-left: 5px;
+    font-family: 'monospace';
+    outline: none;
+    color: white;
+    transition: all 0.3s;
+}
+.inputs_user input:focus {
+    border-bottom: 2px solid white;
+}
+.btns_user {
+    display: flex;
+    justify-content: space-around;
+}
+.btns_user button {
+    width: 30%;
+    margin-top: 40px;
+    height: 30px;
+    background: rgba(0,0,0,0.50);
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.5s;
+    outline: none;
+}
+.add_user:hover {
+    background: rgba(0,59,26,0.79);
+}
+.cancel_add:hover {
+    background: rgba(193,3,0,0.64);
+}

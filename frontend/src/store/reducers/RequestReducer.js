@@ -3,7 +3,7 @@ import {
     POST_REQUEST_ERROR,
     GET_REQUEST_REQUEST,
     GET_REQUEST_SUCCESS, GET_REQUEST_ERROR,
-    PUT_REQUEST_REQUEST,PUT_REQUEST_ERROR,
+    PUT_REQUEST_REQUEST,PUT_REQUEST_ERROR,PUT_REQUEST_SUCCESS
 } from "../actions/RequestsActions";
 
 const initialState = {
@@ -31,6 +31,8 @@ export const RequestReducer = (state = initialState,action) => {
 
         case PUT_REQUEST_REQUEST:
             return{...state, spinner: true, completedRequestError: null};
+        case PUT_REQUEST_SUCCESS:
+            return{...state, spinner: false, completedRequestError: null};
         case PUT_REQUEST_ERROR:
             return{...state,spinner: false, completedRequestError: action.error};
 

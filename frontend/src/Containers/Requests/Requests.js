@@ -13,6 +13,8 @@ class Requests extends Component {
     componentDidMount() {
         new WOW().init();
         this.props.fetchRequests('/requests/false');
+        const footer = document.getElementById('footer');
+        footer.style.display = 'block';
     }
 
     completedHandler = async (id) => {
@@ -22,6 +24,7 @@ class Requests extends Component {
           toast.error(`${this.props.completedRequestError}`);
       }else {
           toast.success('Выполнено!');
+          this.componentDidMount();
       }
     };
 

@@ -25,7 +25,7 @@ class NotFeedbackReviews extends Component {
 
     keysHandler = () => {
         if(this.props.user && this.props.user.role === 'admin'){
-            const keys = this.props.reviewsKeys;
+            const keys = [this.props.reviewsKeys];
 
             const filterKeys = keys.filter(key => key.review === 'No Comment');
             if(filterKeys === null || filterKeys === undefined){

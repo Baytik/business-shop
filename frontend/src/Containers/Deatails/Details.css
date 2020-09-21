@@ -118,7 +118,7 @@
     cursor: pointer;
     margin-top: 5%;
     transition: all 0.5s;
-    margin-left: 5%;
+    margin-left: 1%;
     outline: none;
 }
 .back:hover {

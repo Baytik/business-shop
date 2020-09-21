@@ -1,0 +1,22 @@
+@media screen and (max-width: 560px){
+    .UsersContainer {
+        padding-top: 140px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .UserContainer {
+        padding-top: 100px;
+    }
+}
+@media screen and (max-width: 340px) {
+    .user_name , .user_displayName , .user_role {
+        font-size: 14px;
+    }
+    .delete_user button {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .users_block {
+        height: 120px;
+    }
+}

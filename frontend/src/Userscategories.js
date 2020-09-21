@@ -1,0 +1,1 @@
+export const categories = ['operator','seller','admin'];

@@ -127,21 +127,6 @@
     font-family: 'monospace';
     font-size: 14px;
 }
-.link_notFeedBack {
-    font-family: 'monospace';
-    color: white;
-    text-transform: capitalize;
-    text-decoration: none;
-    height: 30px;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: center;
-    margin-top: 5%;
-}
-.link_notFeedBack:hover {
-    transform: scale(1.2);
-    text-shadow: 0 0 20px white;
-}
 .logout_btn {
     width: 40%;
     margin-top: 5%;
