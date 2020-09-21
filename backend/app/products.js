@@ -60,6 +60,7 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
         monitor: req.body.monitor,
         category: req.body.category,
         price: req.body.price,
+        assembly: req.body.assembly
     };
 
     const product = new Product(newProduct);
@@ -102,6 +103,7 @@ router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], as
     product.monitor = req.body.monitor;
     product.category = req.body.category;
     product.price = req.body.price;
+    product.assembly = req.body.assembly;
 
     try {
         await product.save();
