@@ -12,6 +12,7 @@ class UsersList extends Component {
             if(this.props.user.role !== 'admin'){
                 this.props.history.push('/computers');
             }else {
+            
                 this.props.fetchUser();
             }
         }else {
