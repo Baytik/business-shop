@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const Product = require('../models/Product');
 const Review = require('../models/Review');
+const Analytics = require('../models/Analytics');
 const auth = require('../middleware/auth');
 const permit = require('../middleware/permit');
 
@@ -60,12 +61,15 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
         monitor: req.body.monitor,
         category: req.body.category,
         price: req.body.price,
-        assembly: req.body.assembly
     };
 
     const product = new Product(newProduct);
 
     try {
+        const analytics = await Analytics.findOne();
+        analytics.assembly.push(req.body.assembly);
+
+        await analytics.save();
         await product.save();
         return res.send(product);
     } catch (error) {
@@ -103,7 +107,6 @@ router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], as
     product.monitor = req.body.monitor;
     product.category = req.body.category;
     product.price = req.body.price;
-    product.assembly = req.body.assembly;
 
     try {
         await product.save();
@@ -126,6 +129,10 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
     }
 
     try {
+        const analytics = await Analytics.findOne();
+        analytics.price.push(products.price);
+        analytics.newPrice.push(req.body.rebate === '' ? products.price : req.body.rebate);
+
         const review = new Review({
             pcName: products.pcName,
             price: products.price,
@@ -133,6 +140,7 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
             review: 'No Comment',
             rebate: req.body.rebate === '' ? products.price : req.body.rebate
         });
+        await analytics.save();
         await review.save();
         await Product.deleteOne({_id: req.params.id});
         res.send(review)

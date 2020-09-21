@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('./config');
 const User = require('./models/User');
+const Analytics = require('./models/Analytics');
 const {nanoid} = require('nanoid');
 
 const run = async () => {
@@ -30,6 +31,12 @@ const run = async () => {
         role: 'operator',
         displayName: 'Руся',
         token: nanoid()
+    });
+
+    await Analytics.create({
+        assembly: [],
+        price: [],
+        newPrice: []
     });
 
     mongoose.connection.close();
