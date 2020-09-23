@@ -52,7 +52,7 @@ class NotFeedbackReviews extends Component {
                     <div className="reviewsKeysTables">
                         <h3 className="title_reviewsKeys">Все проданные компьютеры с не оставленными отзывами</h3>
                         <table>
-                            {this.state.reviewsKeys.length > 1 ? (
+                            {this.state.reviewsKeys.length > 0 ? (
                                 this.state.reviewsKeys && Object.keys(this.state.reviewsKeys).map(keys => (
                                         <tbody key={keys}>
                                         <tr>

@@ -26,7 +26,8 @@ class AddComputers extends Component {
         price: '',
         image: '',
         category: Categories[0],
-        text:'Загрузите фото'
+        text:'Загрузите фото',
+        assembly: '',
     };
 
     componentDidMount() {
@@ -98,9 +99,12 @@ class AddComputers extends Component {
                         </div>
 
                         <div className="inputs_block_5">
+                            <input type="number" placeholder="сборка..." onChange={this.inputValHandler} name="assembly"/>
                             <input type="file" name="image" id="image" className="inputfile"
                                    onChange={this.fileChangeHandler}/>
-                            <label htmlFor="image" id="label_for_file">{this.state.image ? 'Фото загружено': this.state.text}</label>
+                            <div className="label_for_file">
+                                <label htmlFor="image" id="label_for_file">{this.state.image ? 'Фото загружено': this.state.text}</label>
+                            </div>
                             <select onChange={this.inputValHandler} name="category">
                                 {Categories.map(category => (
                                     <option key={category}>{category}</option>

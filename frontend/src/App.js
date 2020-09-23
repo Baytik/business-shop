@@ -18,6 +18,7 @@ import './App.css';
 import Footer from "./Components/Notification/Footer/Footer";
 import {fetchId} from "./store/actions/pcAction";
 import {connect} from 'react-redux';
+import Analytics from "./Containers/Analytics/Analytics";
 
 class App extends Component {
 
@@ -72,7 +73,8 @@ class App extends Component {
                     || window.location.pathname === '/requests'
                     || window.location.pathname === this.state.edits
                     || window.location.pathname === '/addUser'
-                    || window.location.pathname === '/usersList') ? (
+                    || window.location.pathname === '/usersList'
+                    || window.location.pathname === '/analytics') ? (
                     <Switch>
                         <Route path="/" exact component={Greeting}/>
                         <Route path="/login" component={Login}/>
@@ -87,6 +89,7 @@ class App extends Component {
                         <Route path="/edit/:id" component={EditComputer}/>
                         <Route path="/addUser" component={AddUser}/>
                         <Route path="/usersList" component={UsersList}/>
+                        <Route path="/analytics" component={Analytics}/>
                     </Switch>
                 ) : (
                     <>

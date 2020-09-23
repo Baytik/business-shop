@@ -12,6 +12,7 @@ import usersReducer from "./store/reducers/usersReducer";
 import {pcReducer} from './store/reducers/pcReducer';
 import {ReviewsReducer} from './store/reducers/ReviewsReducer';
 import {RequestReducer} from './store/reducers/RequestReducer';
+import {StatisticsReducer} from "./store/reducers/StatisticsReducer";
 
 const saveToLocalStorage = state => {
     try {
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
     reviewsKeys: ReviewsReducer,
     postRequestError: RequestReducer,
     requests: RequestReducer,
+    statistics: StatisticsReducer,
 });
 
 const middleware = [

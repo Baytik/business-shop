@@ -139,7 +139,7 @@
     flex-wrap: wrap;
     margin-top: 20px;
     text-align: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .links_in_modal a {
     color: white;

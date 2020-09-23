@@ -23,11 +23,13 @@ import {toast,ToastContainer} from "react-toastify";
 import './Details.css'
 import Spinner from "../../Components/UI/Spinner/Spinner";
 import WOW from 'wow.js';
+import './DetailsMedia.css';
 
 class Details extends Component {
 
     state = {
         modal: false,
+        buyModal: false,
         rebate:'',
         editModal: false,
     };
@@ -82,6 +84,10 @@ class Details extends Component {
       this.setState({modal: false});
     };
 
+    closeBuyModal = () => {
+        this.setState({buyModal: false});
+    };
+
     copyKeyHandler = () => {
         const text = document.getElementById('key');
         text.select();
@@ -98,6 +104,26 @@ class Details extends Component {
                     <Spinner/>
                 ) : (
                     <>
+                        {this.state.buyModal === true ? (
+                            <Modal show={this.state.buyModal} close={this.closeBuyModal}>
+                                <p className="title_buy">
+                                    Позовните нам что-бы приобрести этот компьютер!
+                                </p>
+                                <div className="us_number">
+                                    <p>+(996)-505-11-11-11</p>
+                                    <p>+(996)-777-11-11-11</p>
+                                    <p>+(996)-555-11-11-11</p>
+                                </div>
+                                <p className="or">Или</p>
+                                <div className="feedback_btns" onClick={() => this.props.history.push('/support')}>
+                                    <button className="request_btn">
+                                        оставьте заявку
+                                    </button>
+                                </div>
+                            </Modal>
+                        ) : (
+                            <></>
+                        )}
                         {this.state.modal === true ? (
                             <Modal show={this.state.modal} close={this.closeModal}>
                                 <div className="div_for_flex">
@@ -110,7 +136,7 @@ class Details extends Component {
                                 </div>
                                 <div className="div_for_flex">
                                     <p className="for_float">Реальная цена:</p>
-                                    <p className="pc_price_comment">{this.props.detailsPc.price}сом</p>
+                                    <p className="pc_price_comment">{this.props.detailsPc.price - this.state.rebate}сом</p>
                                 </div>
                                 <div className="modal_btns">
                                     <button className="close_modal" onClick={() => this.props.history.push('/computers') && this.closeModal()}>закрыть</button>
@@ -243,6 +269,11 @@ class Details extends Component {
                                 )}
                                 <div className="back_btn">
                                     <button className="back" onClick={() => this.props.history.push('/computers')}>назад</button>
+                                    {this.props.user ? (
+                                        <></>
+                                    ) : (
+                                        <button className="buy" onClick={() => this.setState({buyModal: true})}>купить</button>
+                                    )}
                                 </div>
                                 <div className="edit_and_sold">
                                     {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (

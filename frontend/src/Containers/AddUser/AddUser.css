@@ -19,7 +19,7 @@
 .inputs_user {
 
 }
-.inputs_user input , select{
+.inputs_user input ,.inputs_user select{
     width: 80%;
     margin-left: 10%;
     background: rgba(0,0,0,0.50);

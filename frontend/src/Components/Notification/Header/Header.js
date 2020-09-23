@@ -33,7 +33,8 @@ class Header extends Component {
             || window.location.pathname === '/requests'
             || window.location.pathname === '/addUser'
             || window.location.pathname === '/usersList'
-            || window.location.pathname === '/reviews'){
+            || window.location.pathname === '/reviews'
+            || window.location.pathname === '/analytics'){
 
             head.style.display = "block";
         }else{
@@ -101,6 +102,7 @@ class Header extends Component {
                                                 <NavLink onClick={() => this.setState({modal:false})} to="/notFeedbackReviews">компьютеры без отзывов</NavLink>
                                                 <NavLink onClick={() => this.setState({modal:false})} to="/addUser">Добавить пользователя</NavLink>
                                                 <NavLink onClick={() => this.setState({modal:false})} to="/usersList">список пользователей</NavLink>
+                                                <NavLink onClick={() => this.setState({modal:false})} to="/analytics">Аналитика</NavLink>
                                             </>
                                         ) : (
                                             <></>

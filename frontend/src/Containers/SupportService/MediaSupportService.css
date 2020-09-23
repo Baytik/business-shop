@@ -19,15 +19,11 @@
         margin-left: 7.5%;
     }
     .phone_block input {
-        width:99.9%;
+        width:100.5%;
         margin-top: 2%;
+        margin-left: 8px;
     }
     .inputs_support textarea {
         font-size: 12px;
-    }
-}
-@media screen and (max-width: 320px){
-    .phone_block input {
-        width: 99.5%;
     }
 }

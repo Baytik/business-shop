@@ -1,89 +1,42 @@
-@media screem and (max-width: 960px) {
-    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input{
-        width: 21%;
-    }
-}
-@media screen and (max-width: 950px) {
-    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input {
-        width: 19%;
-    }
-}
-@media screen and (max-width: 780px){
+@media screen and (max-width: 950px){
     .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input {
         width: 75%;
     }
+    .label_for_file{
+        width: 75%;
+    }
     .inputs_block_5 select {
-        width:31.5%;
+        width: 75%;
     }
 }
-@media screen and (max-width: 660px) {
-    #label_for_file {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    .inputs_block_5 select {
-        width: 29%;
+@media screen and (max-width: 680px){
+    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input , .inputs_block_5 select, .label_for_file {
+        margin-left: 90px;
     }
 }
-@media screen and (max-width: 560px) {
-    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input {
-        margin-left: 80px;
-    }
-    .inputs_block_5 select {
-        width: 75.6%;
-        margin-top: 3%;
-        margin-left: 80px;
-    }
-    #label_for_file {
-        padding-left: 26%;
-        padding-right: 26%;
-        margin-left: 80px;
-    }
-    .btns button {
-        margin-left: 14.5%;
+@media screen and (max-width: 580px){
+    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input , .inputs_block_5 select, .label_for_file{
+        margin-left: 70px;
     }
     .text_add {
-        line-height: 40px;
+        padding-top: 130px;
     }
 }
-@media screen and (max-width: 480px) {
-    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input {
-        margin-left: 60px;
-    }
-    #label_for_file {
-        padding-left: 24.1%;
-        padding-right: 24.1%;
-        margin-left: 60px;
-    }
-    .inputs_block_5 select {
-        margin-left: 60px;
-        width: 75.8%;
-    }
-}
-@media screen and (max-width: 380px) {
-    #label_for_file {
-        padding-left: 20%;
-        padding-right: 20%;
-    }
-}
-@media screen and (max-width: 360px) {
-    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input {
-        margin-left: 40px;
-    }
+@media screen and (max-width: 480px){
     .text_add {
-        font-size: 25px;
+        padding-top: 90px;
     }
-    #label_for_file {
+}
+@media screen and (max-width: 420px){
+    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input , .inputs_block_5 select, .label_for_file{
+        margin-left: 50px;
+    }
+    .btns button{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 340px){
+    .inputs_block_1 input, .inputs_block_2 input, .inputs_block_3 input, .inputs_block_4 input, .inputs_block_5 input , .inputs_block_5 select, .label_for_file{
         margin-left: 40px;
-        padding-left: 17%;
-        padding-right: 17%;
-    }
-    .inputs_block_5 select{
-        margin-left: 40px;
-        width: 77%;
-        margin-top: 5%;
-    }
-    .btns button {
-        font-size: 15px;
     }
 }
