@@ -131,7 +131,7 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
     try {
         const analytics = await Analytics.findOne();
         analytics.price.push(products.price);
-        analytics.newPrice.push(req.body.rebate === '' ? products.price : req.body.rebate);
+        analytics.newPrice.push(req.body.rebate !== '' ? 0 : req.body.rebate);
 
         const review = new Review({
             pcName: products.pcName,
