@@ -38,6 +38,10 @@ class NotFeedbackReviews extends Component {
         }
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
     render() {
         if(this.props.user && (this.props.user.role !== 'admin')){
             this.props.history.push('/computers');

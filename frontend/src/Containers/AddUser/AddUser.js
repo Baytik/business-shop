@@ -62,6 +62,10 @@ class AddUser extends Component {
         }
     };
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
     render() {
         if (!this.props.user){
             this.props.history.push('/computers');

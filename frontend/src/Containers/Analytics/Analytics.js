@@ -11,6 +11,7 @@ class Analytics extends Component {
       profit: '',
       rebate: '',
         sales: '',
+        allSales:'',
     };
 
     async componentDidMount() {
@@ -40,35 +41,41 @@ class Analytics extends Component {
                     profit: profit.reduce((a, b) => a + b),
                     rebate: newPrice.reduce((a, b) => a + b),
                     sales: this.props.statistics[statics].price.length,
+                    allSales: price.reduce((a,b) => a + b) - newPrice.reduce((a,b) => a + b),
                 });
             });
             const ctx = document.getElementById('myChart');
             Chart.defaults.global.defaultFontFamily = 'monospace';
             Chart.defaults.global.defaultFontColor = 'rgb(186,224,255)';
+            Chart.defaults.global.animation.duration = 3000;
+            Chart.defaults.global.animation.easing = 'easeOutQuad';
+            Chart.defaults.global.elements.line.borderWidth = 2;
+            Chart.defaults.global.elements.line.borderCapStyle = 'rgba(122,234,456)';
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Продаж','Сборка','Прибыль', 'Скидки'],
+                    labels: ['Количество Продаж','Сумма Сборки','Чистая Прибыль','Сумма Продаж','Сумма Скидки'],
                     datasets: [{
-                        data: [this.state.sales, this.state.assembly,this.state.profit, this.state.rebate],
+                        data: [this.state.sales, this.state.assembly,this.state.profit, this.state.allSales, this.state.rebate],
                         backgroundColor: [
-                            'rgba(0,243,255,0.8)',
+                            'rgba(44,255,231,0.2)',
                             'rgba(255,225,0,0.8)',
                             'rgba(53,235,0,0.8)',
+                            'rgba(0,235,109,0.8)',
                             'rgba(255,0,16,0.8)',
                         ],
                         borderWidth: 2,
-                        fill: false,
                         radius:7,
-                        hoverRadius: 12,
+                        hoverRadius: 20,
                         borderColor:[
-                            '#468add',
+                            '#d7e3ff',
                         ],
                         hoverBorderColor:[
                             'rgba(4,31,255,0.8)',
-                            'rgba(255,225,0,0.8)',
-                            'rgb(82,235,58)',
-                            'rgb(255,24,34)',
+                            'rgba(154,136,0,0.8)',
+                            'rgb(59,168,41)',
+                            'rgb(24,168,149)',
+                            'rgb(152,14,20)',
                         ],
                         gridLines:{
                             enabled: true,
@@ -96,6 +103,11 @@ class Analytics extends Component {
                 }
             });
         }
+    }
+
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
     }
 
     render() {

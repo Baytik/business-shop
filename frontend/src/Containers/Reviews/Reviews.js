@@ -78,6 +78,10 @@ class Reviews extends Component {
         }
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
     render() {
         return (
             <div className="ReviewsContainer">

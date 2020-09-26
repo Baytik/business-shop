@@ -51,6 +51,7 @@
     color: white;
     cursor: pointer;
     transition: all 0.5s;
+    outline: none;
 }
 .false_requests:hover {
     background: rgba(193,3,0,0.64);

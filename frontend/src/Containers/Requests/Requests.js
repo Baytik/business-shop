@@ -28,6 +28,10 @@ class Requests extends Component {
       }
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps !== this.props;
+    }
+
     render() {
         if(!this.props.user) return <Redirect to="/computers"/>;
         if(this.props.user.role !== 'admin' && this.props.user.role !== 'operator') return <Redirect to="/computers"/>;

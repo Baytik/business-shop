@@ -29,6 +29,10 @@ class UsersList extends Component {
       }
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps !== this.props;
+    }
+
     render() {
         return (
             <div className="UsersContainer">

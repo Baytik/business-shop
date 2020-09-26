@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './ErrorNotFound.css';
 import './MediaNotFound.css';
 
-class ErrorNotFound extends Component {
+class ErrorNotFound extends PureComponent {
     render() {
         return (
                 <div className="not_found_container">

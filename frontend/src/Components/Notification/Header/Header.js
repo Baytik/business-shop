@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import {logoutUser} from "../../../store/actions/usersAction";
@@ -8,7 +8,7 @@ import Modal from '../../UI/Modal/Modal';
 import './Header.css';
 import './MediaHeader.css';
 
-class Header extends Component {
+class Header extends PureComponent {
 
     state = {
         menu: false,

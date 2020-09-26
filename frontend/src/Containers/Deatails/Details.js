@@ -95,6 +95,9 @@ class Details extends Component {
         toast.dark(`Ключ скопирован в буфер обмена как - ${text.value}`);
     };
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
 
     render() {
         return (
