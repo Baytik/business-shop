@@ -16,15 +16,14 @@ router.get('/:completed', [auth, permit('admin', 'operator')], async (req, res) 
 });
 
 router.post('/', async (req, res) => {
-    const newRequest = {
-        phone: req.body.phone,
-        description: req.body.description,
-        email: req.body.email
-    };
-
-    const request = new Request(newRequest);
-
     try {
+        const newRequest = {
+            phone: req.body.phone,
+            description: req.body.description,
+            email: req.body.email
+        };
+        const request = new Request(newRequest);
+
         await request.save();
         return res.send(request);
     } catch (error) {

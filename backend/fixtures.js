@@ -36,7 +36,7 @@ const run = async () => {
     await Analytics.create({
         assembly: [],
         price: [],
-        newPrice: []
+        rebate: []
     });
 
     mongoose.connection.close();

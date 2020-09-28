@@ -42,30 +42,30 @@ router.get('/category/:category', async (req, res) => {
 });
 
 router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], async (req, res) => {
-    if (req.file) {
-        req.body.image = req.file.filename;
-    }
-
-    const newProduct = {
-        box: req.body.box,
-        cpu: req.body.cpu,
-        ram: req.body.ram,
-        hdd: req.body.hdd,
-        cooler: req.body.cooler,
-        power: req.body.power,
-        motherBoard: req.body.motherBoard,
-        pcName: req.body.pcName,
-        image: req.body.image,
-        gpu: req.body.gpu,
-        ssd: req.body.ssd,
-        monitor: req.body.monitor,
-        category: req.body.category,
-        price: req.body.price,
-    };
-
-    const product = new Product(newProduct);
-
     try {
+
+        if (req.file) {
+            req.body.image = req.file.filename;
+        }
+
+        const newProduct = {
+            box: req.body.box,
+            cpu: req.body.cpu,
+            ram: req.body.ram,
+            hdd: req.body.hdd,
+            cooler: req.body.cooler,
+            power: req.body.power,
+            motherBoard: req.body.motherBoard,
+            pcName: req.body.pcName,
+            image: req.body.image,
+            gpu: req.body.gpu,
+            ssd: req.body.ssd,
+            monitor: req.body.monitor,
+            category: req.body.category,
+            price: req.body.price,
+        };
+
+        const product = new Product(newProduct);
         const analytics = await Analytics.findOne();
         analytics.assembly.push(req.body.assembly);
 
@@ -78,41 +78,66 @@ router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], asyn
 });
 
 router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], async (req, res) => {
-    if (req.file) {
-        req.body.image = req.file.filename;
-    }
     const product = await Product.findOne({_id: req.params.id});
 
-    if (req.body.image) {
-        fs.unlink('./public/uploads/' + product.image, function (err) {
-            if (err) {
-                return res.status(400).send(err)
+    if (product) {
+        fs.readdir('./public/uploads/', function (err, files) {
+            const findImage = files.find((image) => image.toString() === req.body.image);
+            if (!findImage) {
+                fs.unlink('./public/uploads/' + product.image, function (err) {
+                    if (err) {
+                        return res.status(400).send(err)
+                    } else {
+                        console.log('OK')
+                    }
+                });
+
+                if (req.file) {
+                    req.body.image = req.file.filename;
+                }
+                product.box = req.body.box;
+                product.cpu = req.body.cpu;
+                product.ram = req.body.ram;
+                product.hdd = req.body.hdd;
+                product.cooler = req.body.cooler;
+                product.power = req.body.power;
+                product.motherBoard = req.body.motherBoard;
+                product.pcName = req.body.pcName;
+                product.image = req.body.image;
+                product.gpu = req.body.gpu;
+                product.ssd = req.body.ssd;
+                product.monitor = req.body.monitor;
+                product.category = req.body.category;
+                product.price = req.body.price;
+
+                try {
+                    product.save();
+                    return res.send(product);
+                } catch (error) {
+                    return res.status(400).send(error);
+                }
             } else {
-                console.log('OK')
+                product.box = req.body.box;
+                product.cpu = req.body.cpu;
+                product.ram = req.body.ram;
+                product.hdd = req.body.hdd;
+                product.cooler = req.body.cooler;
+                product.power = req.body.power;
+                product.motherBoard = req.body.motherBoard;
+                product.pcName = req.body.pcName;
+                product.gpu = req.body.gpu;
+                product.ssd = req.body.ssd;
+                product.monitor = req.body.monitor;
+                product.category = req.body.category;
+                product.price = req.body.price;
+                try {
+                    product.save();
+                    return res.send(product);
+                } catch (error) {
+                    return res.status(400).send(error);
+                }
             }
         });
-    }
-
-    product.box = req.body.box;
-    product.cpu = req.body.cpu;
-    product.ram = req.body.ram;
-    product.hdd = req.body.hdd;
-    product.cooler = req.body.cooler;
-    product.power = req.body.power;
-    product.motherBoard = req.body.motherBoard;
-    product.pcName = req.body.pcName;
-    product.image = req.body.image;
-    product.gpu = req.body.gpu;
-    product.ssd = req.body.ssd;
-    product.monitor = req.body.monitor;
-    product.category = req.body.category;
-    product.price = req.body.price;
-
-    try {
-        await product.save();
-        return res.send(product);
-    } catch (error) {
-        return res.status(400).send(error);
     }
 });
 
@@ -131,14 +156,14 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
     try {
         const analytics = await Analytics.findOne();
         analytics.price.push(products.price);
-        analytics.newPrice.push(req.body.rebate !== '' ? 0 : req.body.rebate);
+        analytics.rebate.push(req.body.rebate !== '' ? 0 : req.body.rebate);
 
         const review = new Review({
             pcName: products.pcName,
             price: products.price,
             key: nanoid(7),
             review: 'No Comment',
-            rebate: req.body.rebate === '' ? products.price : req.body.rebate
+            rebate: req.body.rebate === '' ? 0 : req.body.rebate
         });
         await analytics.save();
         await review.save();

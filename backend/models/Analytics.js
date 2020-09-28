@@ -7,7 +7,7 @@ const AnalyticsSchema = new mongoose.Schema({
     price: {
         type: [String],
     },
-    newPrice: {
+    rebate: {
         type: [String],
     }
 });
