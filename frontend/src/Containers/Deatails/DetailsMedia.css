@@ -1,8 +1,22 @@
+@media screen and (max-width: 1125px){
+    .pc_cpu img, .pc_gpu img, .pc_ram img, .pc_board img, .pc_power img, .pc_cooler img, .pc_monitor img, .pc_ssd img, .pc_box img, .pc_hdd img, .pc_warranty img, .pc_price img{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media screen and (max-width: 480px){
+    .feedback_btns button {
+        font-size: 10px;
+    }
+}
 @media screen and (max-width: 380px){
     .us_number p {
         font-size: 14px;
     }
     .title_buy {
-        font-size: 14px;
+        font-size: 13px;
+    }
+    .or {
+        font-size: 13px;
     }
 }

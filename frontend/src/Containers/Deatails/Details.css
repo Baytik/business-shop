@@ -82,7 +82,7 @@
 .edit_and_sold {
     display: flex;
     justify-content: center;
-    height: 194px;
+    height: 120px;
 }
 .back_btn {
     display: flex;
@@ -184,9 +184,8 @@
     letter-spacing: 0.06em;
     color: #d4f1ff;
 }
-.request_btn {
-    width: 80%;
-    margin-left: 10%;
+.request_btn , .close_byModal{
+    width: 40%;
     background: transparent;
     border: 2px solid white;
     color: white;
@@ -200,4 +199,17 @@
 .request_btn:hover {
     background: #9cdbff;
     color: black;
+    box-shadow: 0 0 15px #9cdbff;
+}
+.close_byModal:hover {
+    background: white;
+    box-shadow: 0 0 15px white;
+    color: black;
+}
+.feedback_btns {
+    display: flex;
+    justify-content: space-around;
+}
+.details_info_2 {
+    display: none;
 }

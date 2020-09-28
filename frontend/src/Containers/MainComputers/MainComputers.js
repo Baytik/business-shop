@@ -112,7 +112,7 @@ class MainComputers extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
+    shouldComponentUpdate(nextProps, nextState) {
         return nextProps !== this.props || nextState !== this.state;
     }
 

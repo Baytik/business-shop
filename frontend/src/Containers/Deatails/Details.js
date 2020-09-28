@@ -118,10 +118,11 @@ class Details extends Component {
                                     <p>+(996)-555-11-11-11</p>
                                 </div>
                                 <p className="or">Или</p>
-                                <div className="feedback_btns" onClick={() => this.props.history.push('/support')}>
-                                    <button className="request_btn">
+                                <div className="feedback_btns">
+                                    <button className="request_btn" onClick={() => this.props.history.push('/support')}>
                                         оставьте заявку
                                     </button>
+                                    <button className="close_byModal" onClick={this.closeBuyModal}>закрыть</button>
                                 </div>
                             </Modal>
                         ) : (
@@ -157,6 +158,11 @@ class Details extends Component {
                                     <h2>Подробнее о {this.props.detailsPc.pcName}</h2>
                                 </div>
                                 <div className="computer_details">
+                                    <div className="details_info_0">
+                                        <div className="pc_image">
+                                            <img src={apiURL + '/uploads/' + this.props.detailsPc.image} alt={this.props.detailsPc.image}/>
+                                        </div>
+                                    </div>
                                     <div className="details_info_1">
                                         <div className="block_1">
                                             <div className="pc_cpu">

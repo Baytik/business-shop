@@ -22,7 +22,7 @@ class Analytics extends Component {
             this.props.statistics && Object.keys(this.props.statistics).forEach(statics => {
                 const assembly = [];
                 const price = [];
-                const newPrice = [];
+                const rebate = [];
                 for (let i = 0; i < this.props.statistics[statics].assembly.length; i++) {
                     const assemblyReduce = parseInt(this.props.statistics[statics].assembly[i]);
                     assembly.push(assemblyReduce);
@@ -31,17 +31,17 @@ class Analytics extends Component {
                     const priceReduce = parseInt(this.props.statistics[statics].price[i]);
                     price.push(priceReduce);
                 }
-                for (let i = 0; i < this.props.statistics[statics].newPrice.length; i++) {
-                    const newPriceReduce = parseInt(this.props.statistics[statics].newPrice[i]);
-                    newPrice.push(newPriceReduce);
+                for (let i = 0; i < this.props.statistics[statics].rebate.length; i++) {
+                    const newPriceReduce = parseInt(this.props.statistics[statics].rebate[i]);
+                    rebate.push(newPriceReduce);
                 }
-                const profit = [price.reduce((a,b) => a + b) - assembly.reduce((a,b) => a + b) - newPrice.reduce((a,b) => a + b)];
+                const profit = [price.reduce((a,b) => a + b) - assembly.reduce((a,b) => a + b) - rebate.reduce((a,b) => a + b)];
                 this.setState({
                     assembly: assembly.reduce((a, b) => a + b),
                     profit: profit.reduce((a, b) => a + b),
-                    rebate: newPrice.reduce((a, b) => a + b),
+                    rebate: rebate.reduce((a, b) => a + b),
                     sales: this.props.statistics[statics].price.length,
-                    allSales: price.reduce((a,b) => a + b) - newPrice.reduce((a,b) => a + b),
+                    allSales: price.reduce((a,b) => a + b) - rebate.reduce((a,b) => a + b),
                 });
             });
             const ctx = document.getElementById('myChart');

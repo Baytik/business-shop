@@ -141,14 +141,6 @@ class Header extends PureComponent {
                             <li>
                                 <NavLink to="/reviews">Отзывы</NavLink>
                             </li>
-                            {this.props.user && (this.props.user.role === 'seller' || this.props.user.role === 'admin') ? (
-                                <li>
-                                    <NavLink to="/addComputer">Добавить компьютер</NavLink>
-                                </li>
-                            ) : (
-                                <>
-                                </>
-                            )}
                             {this.props.user && (
                                 <>
                                     <li className="logout_mobile" onClick={this.showModal}>
