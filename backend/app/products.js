@@ -132,7 +132,7 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
     try {
         const analytics = await Analytics.findOne();
         analytics.price.push(products.price);
-        analytics.rebate.push(req.body.rebate !== '' ? 0 : req.body.rebate);
+        analytics.rebate.push(req.body.rebate === '' ? 0 : req.body.rebate);
 
         const review = new Review({
             pcName: products.pcName,
@@ -141,6 +141,7 @@ router.put('/review/:id', [auth, permit('admin', 'seller')], async (req, res) =>
             review: 'No Comment',
             rebate: req.body.rebate === '' ? 0 : req.body.rebate
         });
+
         await analytics.save();
         await review.save();
         await Product.deleteOne({_id: req.params.id});
