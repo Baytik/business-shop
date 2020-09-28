@@ -42,29 +42,15 @@ router.get('/category/:category', async (req, res) => {
 });
 
 router.post('/', [upload.single('image'), auth, permit('admin', 'seller')], async (req, res) => {
+    if (req.file) {
+        req.body.image = req.file.filename;
+    }
+    const newProduct = {};
+    Object.keys(req.body).forEach(key => {
+        newProduct[key] = req.body[key];
+    });
+
     try {
-
-        if (req.file) {
-            req.body.image = req.file.filename;
-        }
-
-        const newProduct = {
-            box: req.body.box,
-            cpu: req.body.cpu,
-            ram: req.body.ram,
-            hdd: req.body.hdd,
-            cooler: req.body.cooler,
-            power: req.body.power,
-            motherBoard: req.body.motherBoard,
-            pcName: req.body.pcName,
-            image: req.body.image,
-            gpu: req.body.gpu,
-            ssd: req.body.ssd,
-            monitor: req.body.monitor,
-            category: req.body.category,
-            price: req.body.price,
-        };
-
         const product = new Product(newProduct);
         const analytics = await Analytics.findOne();
         analytics.assembly.push(req.body.assembly);
@@ -95,20 +81,10 @@ router.put('/:id', [upload.single('image'), auth, permit('admin', 'seller')], as
                 if (req.file) {
                     req.body.image = req.file.filename;
                 }
-                product.box = req.body.box;
-                product.cpu = req.body.cpu;
-                product.ram = req.body.ram;
-                product.hdd = req.body.hdd;
-                product.cooler = req.body.cooler;
-                product.power = req.body.power;
-                product.motherBoard = req.body.motherBoard;
-                product.pcName = req.body.pcName;
-                product.image = req.body.image;
-                product.gpu = req.body.gpu;
-                product.ssd = req.body.ssd;
-                product.monitor = req.body.monitor;
-                product.category = req.body.category;
-                product.price = req.body.price;
+
+                Object.keys(req.body).forEach(key => {
+                    product[key] = req.body[key];
+                });
 
                 try {
                     product.save();
