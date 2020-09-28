@@ -106,7 +106,7 @@ class Reviews extends Component {
                                     <div className="review_block" key={reviews}>
                                         <h4 className="review_pc_name">Покупатель, {this.state.reviews[reviews].pcName}</h4>
                                         <p className="review_text">{this.state.reviews[reviews].review}</p>
-                                        <p className="review_price">Купил за - {this.state.reviews[reviews].price} сом</p>
+                                        <p className="review_price">Купил за - {this.state.reviews[reviews].price - this.state.reviews[reviews].rebate} сом</p>
                                         {this.props.user && (this.props.user.role === 'admin' || this.props.user.role === 'operator') ? (
                                             <button onClick={() => this.deleteReviewHandler(this.state.reviews[reviews]._id)} className="delete_review">удалить</button>
                                         ) : (
